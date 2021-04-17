@@ -1,4 +1,4 @@
-/* animation for kannaeat */
+/* animation for kannaeat */ 
 
 :root {
     --animate-duration: 1s;
@@ -29,7 +29,7 @@
 }
 
 .animate__rubberBand {
-    -webkit-animation-name: rubberBand;
+    -webkit-animation-name: rubberBand; 
     animation-name: rubberBand
 }
 @keyframes shakeY {
