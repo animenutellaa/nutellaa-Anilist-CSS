@@ -1,0 +1,646 @@
+/* animation for kannaeat */
+
+:root {
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+    --animate-repeat: 1
+}
+@keyframes rubberBand{
+    0%,
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0)
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(0, 10px, 0);
+        transform: translate3d(0, 10px, 0)
+    }
+}
+
+.animate__rubberBand {
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand
+}
+@keyframes shakeY {
+    0%,
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0)
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(0, 10px, 0);
+        transform: translate3d(0, 10px, 0)
+    }
+}
+
+.animate__shakeY {
+    -webkit-animation-name: shakeY;
+    animation-name: shakeY
+}
+/* Settings */
+:root, .site-theme-dark, .site-theme-contrast {
+  /* General Settings */
+  --nutella-br: 15px; /* Global Border Radius */
+  --nutella-pv: 30px; /* Vertical Content Padding */
+  --nutella-ph: 30px; /* Horizontal Content Padding */
+  --nutella-bt: 0.3;  /* Content Background Transparency*/
+  --nutella-nr: 30px; /* Navbar Border Radius */
+  --nutella-nl: 66%;  /* Navbar Length */
+  --nutella-sb: 4px;  /* Scrollbar Width */
+  --nutella-vs: 0.93;  /* Scale For Various Elements */
+  --nutella-vb: 2px;  /* Various Avatar Border Thickness */
+  --nutella-sr: 4px;  /* Social Page Border Thickness */
+  --nutella-fr: 30px; /* Footer Border Radius */
+  --nutella-fl: 85%;  /* Footer Length */
+  --nutella-bl: 4px;  /* Background 'Window' Blur Amount */
+  --nutella-rs: 1.025; /* Scaling For Load More Button And Activity Input */
+  --nutella-gs: var(--color-blue);    /* Stats Wrap Gradient Start Color */
+  --nutella-ge: var(--color-blue-dim);    /* Stats Wrap Gradient End Color */
+  --nutella-vt: all 0.69s ease-in-out; /* Transition For Various Elements */
+  --nutella-li: initial; /* Anilist Logo Source */ 
+  --nutella-lb: 0px;     /* Anilist Logo Border Thickness */
+  --nutella-lr: 0px;     /* Anilist Logo Border Radius */
+  --nutella-ls: 1.2;     /* Anilist Logo Hover Scaling */
+  --nutella-bs: rgba(0, 0, 0, 0.07) 0px 1px 2px, /* Box Shadow */
+               rgba(0, 0, 0, 0.07) 0px 2px 4px,
+               rgba(0, 0, 0, 0.07) 0px 4px 8px,
+               rgba(0, 0, 0, 0.07) 0px 8px 16px;
+  --nutella-ns: rgba(0, 0, 0, 0.07) 0px 1px 2px, /* Box Shadow For Navbar */
+               rgba(0, 0, 0, 0.07) 0px 2px 4px;
+
+ /* Avatar Settings */
+  --nutella-ab: 5px;   /* Avatar Border Thickness */
+  --nutella-ar: 255px;  /* Avatar Border Radius */
+  --nutella-at: all 1s ease-in-out; /* Avatar Hover Transition */
+  --nutella-av: url("https://i.imgur.com/n1WwnUc.png"); /* Avatar Picture Link */
+  --nutella-ah: 1.1; /* Avatar Hover Scale */
+
+  /* maths, ty anzu <3 */
+  --nutella-brt: var(--nutella-br) var(--nutella-br) 0 0;
+  --nutella-brb: 0 0 var(--nutella-br) var(--nutella-br);
+  --nutella-bra: var(--nutella-br) var(--nutella-br) var(--nutella-br) var(--nutella-br);
+  --nutella-pdh: var(--nutella-pv) var(--nutella-ph);
+  --nutella-maw: 75%;
+  --nutella-abs: var(--nutella-ab) solid rgb(var(--color-foreground));
+  --nutella-nbr: 0 0 var(--nutella-nr) var(--nutella-nr);
+  --nutella-nbl: calc((100% - var(--nutella-nl)) / 2);
+  --nutella-fbr: var(--nutella-fr) var(--nutella-fr) 0 0;
+  --nutella-fbl: calc((100% - var(--nutella-fl)) / 2);
+  --nutella-bch: calc(330px - 75px);
+  --nutella-bcc: calc(var(--nutella-bch) / 2);
+  --nutella-bctc: calc(var(--nutella-bcc) - 36px / 2 );
+  --nutella-vab: var(--nutella-vb) solid rgb(var(--color-background));  
+  --nutella-sab: var(--nutella-sr) solid rgb(var(--color-background));
+  --nutella-lob: var(--nutella-lb) solid rgb(var(--color-blue));
+}
+Dark Theme
+.site-theme-dark {
+    --color-background:             15, 23, 25;
+    --color-foreground:             28, 36, 38;
+    --color-foreground-grey:        20, 28, 30;
+    --color-foreground-grey-dark:   15, 23, 25;
+    --color-text:                   141, 138, 134; 
+    --color-text-light:             156, 153, 149;
+    --color-text-lighter:           161, 168, 164;
+    --color-text-bright:            176, 183, 179;
+    --color-blue:                   169, 126, 73;
+    --color-blue-dim:               91, 75, 64;
+    --color-green:                  169, 126, 73;
+} 
+/* Code */
+/* Body */
+body {
+    background-image: url("https://cdn.discordapp.com/attachments/809136394273816617/829811247285141504/css_anilist_background_1_1_1_1.png");
+    background-position: 50% 50%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* changes the top home section */
+#nav {
+  background: rgba(var(--color-foreground-grey),var(--nutella-bt)) none repeat scroll 0% 0% !important;
+  border-radius: var(--nutella-nbr);
+  left: var(--nutella-nbl);
+  width: var(--nutella-nl);
+  box-shadow: var(--nutella-bs);
+  transition: background 0.8s ease 0s, top 0.5s ease 0s !important;
+  backdrop-filter: blur(var(--nutella-bl));
+}
+/* search section fix */
+.quick-search.visible[data-v-bcbe965e] {
+    left: auto;
+}
+.link[data-v-4fbac4e1] {
+    transition: transform 0.69s ease-in-out;
+}
+.link[data-v-4fbac4e1]:hover {
+    transform: scale(1.2);
+    color: #B368E6
+}
+/* changes logo and adds hover */
+.logo img[data-v-4fbac4e1] {
+    content: url(https://cdn.discordapp.com/attachments/809136394273816617/829794890518364210/nutella_avatar_logo.png);
+}
+/* avatar */
+.avatar[data-v-5445dac8] {
+max-width: 240px;
+}
+.logo:hover {
+    transition: transform 0.69s ease-in-out;
+    transform: scale(1.6);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.search[data-v-4fbac4e1]:hover svg {
+    background: url(https://cdn.discordapp.com/attachments/809136394273816617/829796231563051048/kanna_search_gif.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #0010FF00;
+    transform: scale(10) translate(0px, 13px) !important;
+}
+/* Banner */
+.banner {
+  visibility: hidden;
+}
+.banner > .container {
+  visibility: visible;
+  justify-content: center;
+}
+/* Re-aligns profile picture and name. Part of shorter navbar*/
+.banner .container[data-v-5445dac8]
+{
+    max-width: 80%;
+}
+/* Container */
+.header-wrap > .nav-wrap {
+  max-width: var(--nutella-maw);
+  margin: 0 auto;
+  border-radius: var(--nutella-brt);
+  box-shadow: var(--nutella-ns);
+  position: relative;
+}
+.nav > .link {
+  position: relative;
+}
+.nav > .link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background: rgb(var(--color-blue));
+  transition: all 0.3s ease-in-out;
+}
+.nav > .router-link-active::after {
+  left: 0;
+  width: 100%;
+  background: rgb(var(--color-blue-dim));
+}
+.nav > .link:hover::after {
+  left: 0;
+  width: 100%;
+  background: rgb(var(--color-blue));
+}
+.content.container {
+  background: rgba(var(--color-foreground-grey),var(--nutella-bt));
+  max-width: var(--nutella-maw);
+  padding: var(--nutella-pdh);
+  border-radius: var(--nutella-brb);
+  box-shadow: var(--nutella-bs);
+  backdrop-filter: blur(var(--nutella-bl));
+}
+/* Content - Overview */
+.content > .overview {
+  margin-top: 0;
+}
+.stats-wrap > .content-wrap, .about > .content-wrap, .desktop > .content-wrap, .activity-entry > .wrap, .favourites-wrap > .favourite, .scroller > .load-more, .user-page-unscoped .markdown-editor, .el-textarea__inner, .input {
+  border-radius: var(--nutella-bra) !important;
+  box-shadow: var(--nutella-bs);
+  transition: var(--nutella-vt);
+}
+.history-day:hover {
+  transform: scale(1.2);
+}
+.activity-entry > .wrap {
+  transition: var(--nutella-vt);
+  max-height: none /*70px*/;
+}
+.activity-entry:hover .wrap {
+  transform: scale(1.05); 
+  max-height: none /*663px*/; /*  663 560px max height, 28px margin, 70px header, 5px idk? kek */
+}
+.wrap > .text {
+  padding-top: 15px;
+}
+.text > .activity-markdown > .markdown {
+  max-height: none;
+}
+.header > .avatar, .list > .cover {
+  opacity: var(--nutella-vo);
+  transition: var(--nutella-vt);
+}
+.wrap:hover .cover {
+  opacity: 1;
+}
+.header > .avatar, .users > .user {
+  opacity: var(--nutella-vo);
+  transition: var(--nutella-vt);
+  border-radius: 255px !important;
+}
+.wrap:hover .header > .avatar, .users > .user:hover, .reply:hover .header > .avatar {
+  opacity: 1;
+  border-color: rgb(var(--color-blue));
+}
+.header > .name {
+  transition: var(--nutella-vt);
+}
+.wrap:hover .header > .name {
+  opacity: 1;
+}
+.activity-entry, .input, svg:not(:root).svg-inline--fa {
+  transition: var(--nutella-vt);
+}
+.list .title, .input .el-textarea__inner {
+  opacity: var(--nutella-vo);
+  transition: var(--nutella-vt);
+}
+.activity-manga_list:hover, .activity-anime_list:hover {
+  transform: scale(1.05);  
+}
+.activity-manga_list:hover .title, .activity-anime_list:hover .title {
+  opacity: 1;
+}
+.input:hover {
+  transform: scale(var(--nutella-rs));
+}
+.input:hover .el-textarea__inner {
+  opacity: 1;
+}
+svg:not(:root).svg-inline--fa:hover {
+  transform: scale(1.2);
+}
+.scroller > .load-more {
+  margin-top: 0;
+}
+.scroller > .load-more:hover {
+  color: rgb(var(--color-blue));
+  box-shadow: var(--nutella-bs);
+  transform: scale(var(--nutella-rs));
+}
+.activity-replies > .reply {
+  border-radius: var(--nutella-br);
+}
+.reply:hover .header > .name {
+  opacity: 1;
+}
+/*  favourites section bugfix */
+.favourites-wrap[data-v-1496db1c]{
+    overflow: visible;
+}
+/* hover for different things */
+.overview .favourites > .favourites-wrap {
+  overflow: visible;
+}
+/* favourites section hover */
+.favourites .favourite:hover {
+  transition: transform 0.69s ease-in-out;
+  transform: scale(1.33);
+  z-index: 20;
+}
+.genre-overview[data-v-aedb6876] {
+    transition: transform 0.5s;
+}
+.genre-overview:hover {
+    transform: scale(1.05);
+}
+.activity-history[data-v-514856af] {
+    transition: transform 0.5s;
+}
+.activity-history:hover {
+    transform: scale(1.05);
+}
+/* Small avatar circle frame */
+.text .avatar[data-v-6c3dc0b8]  {
+    border-radius: 100%;
+    transition: transform .25s ease-in-out;
+}
+/* Comments section avatar -> circle frame */
+.avatar[data-v-5a191921]  {
+    border-radius: 100%;
+}
+/* Small avatar hover */
+.text .avatar[data-v-6c3dc0b8]:hover  {
+    transform: scale(2);
+}
+/* Make Bio Longer */
+.about > .content-wrap {
+  transform: scale(1) !important;
+  max-height: none !important;
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+width: var(--nutella-sb);
+height: var(--nutella-sb);
+}
+::-webkit-scrollbar-thumb {
+background: rgba(var(--color-text-light),.5);
+border-radius: var(--nutella-br);
+}
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+background: #B368E6;
+}
+::-webkit-scrollbar-track {
+background: rgb(var(--color-background));
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/* Content - Anime List / Manga List */
+.content > .medialist {
+  margin-top: 0;
+}
+/* Content - Favorites */
+.favourites {
+  margin-top: 0 !important;
+}
+/* Content - Stats */
+.content > .stats {
+  margin-top: 0;
+}
+/* Content - Social */
+.content > .user-social {
+  margin-top: 0;
+}
+.filter-group span:hover {
+  background: rgb(var(--color-foreground));
+  color: rgb(var(--color-blue));
+}
+.follow-card {
+  opacity: var(--nutella-vo);
+  border-radius: var(--nutella-ar);
+  transition: var(--nutella-vt);
+}
+.follow-card > .avatar {
+  border: var(--nutella-sab);
+  border-radius: 255px !important;
+  transition: var(--nutella-vt);
+}
+.follow-card:hover, .follow-card > .avatar:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  border-color: rgb(var(--color-blue));
+}
+.follow-card > .name {
+      background: rgba(var(--color-shadow),.4);
+}
+/* Footer */
+.wrap > .footer {
+  position: relative;
+  background: rgb(0,0,0,0.8);
+  border-radius: var(--nutella-fbr);
+  left: var(--nutella-fbl);
+  width: 85%;
+  box-shadow: var(--nutella-bs);
+}
+.theme-selector > .dark {
+  background: #000;
+}
+.theme-selector > h2 {
+  color: #B368E6;
+}
+a, a:visited {
+    color: rgb(var(--color-text));
+}
+/* CURSOR */
+* {
+    cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963044248158268/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-cursor.png), auto;
+}
+a[href],
+input[type='submit'],
+input[type='image'],
+label[for],
+select,
+button,
+.pointer {
+    cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963046839189554/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-pointer.png), auto;
+}
+a,
+a:link img {
+    cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963046839189554/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-pointer.png), auto !important;
+}
+.section-header[data-v-09492909]::before {
+    transition: transform .7s ease-in-out;
+    visibility: visible;
+    content: "Leave a message <3 on   nutella♡'s";
+    color: #B368E6
+}
+.activity-markdown[data-v-a640d98c]:after {
+    content: "nutellaa loves you♡ " url(https://cdn.discordapp.com/attachments/809136394273816617/829802215535017984/heartarrowww.gif);
+    white-space: pre-wrap;
+    font-style: italic;
+    justify-content: flex-end;
+    display: flex;
+}
+.list-stats:nth-child(1), .list-stats:nth-child(2) {
+  height: calc(165px - 45px);
+}
+.list-stats:nth-child(1):hover, .list-stats:nth-child(2):hover {
+  height: 165px;
+}
+/*large stats*/
+.favourite[data-v-5d0e8ada] {
+    border-radius: 7px !important;
+}
+.stats-wrap[data-v-815ccddc] {
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 10px;
+    grid-template-columns: auto auto;
+    padding: 20px 40px;
+    text-align: left;
+}
+.stat[data-v-815ccddc]:nth-child(1) {
+    grid-row-start: span 2;
+}
+.stat:nth-child(1) .value[data-v-815ccddc] {
+    font-size: 5.5rem;
+}
+.stat .value[data-v-815ccddc] {
+    font-size: 2rem;
+    padding-bottom: 0px;
+}
+.stat .label[data-v-815ccddc] {
+    font-size: 1.2rem;
+}
+.list-stats[data-v-815ccddc]:nth-child(1) .stat[data-v-815ccddc]:nth-child(1) .label:before {
+    content: '';
+    mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50% 50%;
+    -webkit-mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50% 50%;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    width: 19px;
+    height: 16px;
+    margin-right: 5px;
+    background-color: rgba(var(--color-text-light));
+}
+.list-stats[data-v-815ccddc]:nth-child(2) .stat[data-v-815ccddc]:nth-child(1) .label,
+.list-stats[data-v-815ccddc]:nth-child(1) .stat[data-v-815ccddc]:nth-child(1) .label {
+    display: flex;
+    align-items: center;
+    color: rgb(var(--color-text-light));
+}
+.list-stats[data-v-815ccddc]:nth-child(2) .stat[data-v-815ccddc]:nth-child(1) .label:before {
+    content: '';
+    mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50% 50%;
+    -webkit-mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50% 50%;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    width: 13px;
+    height: 16px;
+    margin-right: 5px;
+    background-color: rgba(var(--color-text-light));
+}
+.banner-content[data-v-5445dac8] {
+    position: relative;
+}
+
+.name[data-v-5445dac8] {
+    font-size: 3rem;
+    padding-bottom: 14px;
+    padding-left: 0px;
+}
+.site-theme-dark .nav-unscoped.transparent, 
+.site-theme-dark .nav-unscoped {
+    background: rgb(var(--color-foreground));
+}
+
+.site-theme-dark .nav-unscoped.transparent:hover {
+    background: rgb(var(--color-foreground));
+}
+
+.header-wrap .banner {
+    height: 333px;
+}
+
+.banner .container[data-v-5445dac8],
+.banner .container .banner-content {
+    align-items: center;
+}
+.name[data-v-5445dac8] {
+    font-size: 5rem;
+    padding: 30px 50px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+.banner-content h1.name {
+    filter: drop-shadow(0px 0px 0px rgba(0,0,0,0));
+}
+.banner-content[data-v-5445dac8] {
+    margin-top: 20px;
+    position: relative;
+}
+.banner-content[data-v-5445dac8]:after{
+    content: "";
+    position: absolute;
+    background: url('https://cdn.discordapp.com/attachments/809136394273816617/831721620460011591/240-2406153_image-of-kanna-ketsu-karaage-removebg-preview.png') no-repeat 0 0;
+    display: inline-block;
+    height: 310px;
+    width: inherit;
+    left: 75%;
+    animation: shakeY 30s;
+    animation-iteration-count: infinite;
+}
+
+.actions[data-v-5445dac8] {
+    min-width: 1px;
+    display: flex;
+    align-items: center;
+    margin-left: -290px;
+}
+.dropdown[data-v-5445dac8] {
+    margin-top: 150px;
+    margin-left: -245px;
+    background: rgba(var(--color-overlay), 0);
+}
+.dropdown[data-v-5445dac8]:hover {
+    background: rgba(var(--color-overlay), 0);
+}
+.mod-badge[data-v-5445dac8] {
+    position: absolute;
+    left: 435px;
+    bottom: 61px;
+    content: "Yes";
+    font-size: 0;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-name: rainbow;
+    animation-timing-function: ease-in-out;
+}
+
+.mod-badge[data-v-5445dac8]:after {
+    content: "✓";
+    font-size: 1.6rem;
+    margin-left: -2px;
+}
+
+.nav-btn[data-v-5445dac8] {
+    margin-top: 150px;
+    margin-left: 46px;
+    border-radius: 20px;
+    width: 200px;
+}
+.nav-btn[data-v-5445dac8] {
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-name: rainbow;
+    animation-timing-function: ease-in-out;
+}
+.nav .link[data-v-5445dac8] {
+    margin: 0 30px;
+    font-size: 1.7rem;
+    border-bottom: 2px solid rgba(0,0,0,0);
+    transition: 0.5s;
+}
+.nav .link[data-v-5445dac8]:nth-child(7),
+.nav .link[data-v-5445dac8]:nth-child(8) {
+    width: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+}
+.donator-badge[data-v-5445dac8] {
+    visibility: hidden;
+}
+.wrap[data-v-64116ff5], .input[data-v-93c5960c], .overview[data-v-5c30286e] .content-wrap, .reply[data-v-7ce9ffb8] {
+    border-radius: 5px;
+    border: 1px solid rgba(179,104,230,0.4);
+    font-size: 1.3rem;
+    overflow: hidden;
+    position: relative;
+}
