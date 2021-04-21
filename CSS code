@@ -663,9 +663,42 @@ a:link img {
 .button[data-v-0bd85c1d] {
     cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/834126328671633459/ezgif.com-gif-maker_4-0.png), auto;
 }
+/* Adds a custom badge for users who send you a message*/
+:root, .site-theme-dark, .site-theme-contrast {
+  --ub-nutellaa:           "degenerate";
+  --ub-anzu:               "css god";
+  
+}
+.header[data-v-64116ff5] > a:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  position: relative;
+  top: -1px;
+  left: 4px;
+  border-radius: 20px;
+  color: rgba(255,225,255, 1);
+  padding: 5px 8px;
+  margin-bottom: 20px;
+  margin-right: 16px;
+  transition: .4s;
+  font-size: 1.2rem;
+  transition: .5s;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-name: rainbow;
+  animation-timing-function: ease-in-out;
+}
+/*use this to add custom badge*/
+/*a[href="/user/username/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-username);
+  }*/ 
+
+a[href="/user/nutellaa/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-nutellaa);
+}
 
 
 
+
+/*Extra features i dont use*/
 /* Adds a thin border to everything in content(only use if you like) */
 .wrap[data-v-64116ff5], .input[data-v-93c5960c], .overview[data-v-5c30286e] .content-wrap, .reply[data-v-7ce9ffb8] {
     border-radius: 5px;
