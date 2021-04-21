@@ -1,65 +1,9 @@
-/* animation for kannaeat */ 
+/* Be careful since its intended for my profile, you will have to change a few things around for your own */
 
-:root {
-    --animate-duration: 1s;
-    --animate-delay: 1s;
-    --animate-repeat: 1
-}
-@keyframes rubberBand{
-    0%,
-    to {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0)
-    }
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-        -webkit-transform: translate3d(0, -10px, 0);
-        transform: translate3d(0, -10px, 0)
-    }
-    20%,
-    40%,
-    60%,
-    80% {
-        -webkit-transform: translate3d(0, 10px, 0);
-        transform: translate3d(0, 10px, 0)
-    }
-}
 
-.animate__rubberBand {
-    -webkit-animation-name: rubberBand;
-    animation-name: rubberBand
-}
-@keyframes shakeY {
-    0%,
-    to {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0)
-    }
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-        -webkit-transform: translate3d(0, -10px, 0);
-        transform: translate3d(0, -10px, 0)
-    }
-    20%,
-    40%,
-    60%,
-    80% {
-        -webkit-transform: translate3d(0, 10px, 0);
-        transform: translate3d(0, 10px, 0)
-    }
-}
 
-.animate__shakeY {
-    -webkit-animation-name: shakeY;
-    animation-name: shakeY
-}
-/* Settings */
+/* Settings (rest of the code depends on this so very important) */
+/* If you only want certain code then replace the part that says var(--nutella-xx) with whats in the settings */
 :root, .site-theme-dark, .site-theme-contrast {
   /* General Settings */
   --nutella-br: 15px; /* Global Border Radius */
@@ -128,9 +72,72 @@ Dark Theme
     --color-blue:                   169, 126, 73;
     --color-blue-dim:               91, 75, 64;
     --color-green:                  169, 126, 73;
-} 
-/* Code */
-/* Body */
+}
+/* animation for kanna in banner */
+
+:root {
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+    --animate-repeat: 1
+}
+@keyframes rubberBand{
+    0%,
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0)
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(0, 10px, 0);
+        transform: translate3d(0, 10px, 0)
+    }
+}
+
+.animate__rubberBand {
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand
+}
+@keyframes shakeY {
+    0%,
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0)
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(0, 10px, 0);
+        transform: translate3d(0, 10px, 0)
+    }
+}
+
+.animate__shakeY {
+    -webkit-animation-name: shakeY;
+    animation-name: shakeY
+}
+
+/* CODE */
+
+/* adds background image */
 body {
     background-image: url("https://cdn.discordapp.com/attachments/809136394273816617/829811247285141504/css_anilist_background_1_1_1_1.png");
     background-position: 50% 50%;
@@ -148,10 +155,11 @@ body {
   transition: background 0.8s ease 0s, top 0.5s ease 0s !important;
   backdrop-filter: blur(var(--nutella-bl));
 }
-/* search section fix */
+/* search section fix(only use with the code above) */
 .quick-search.visible[data-v-bcbe965e] {
     left: auto;
 }
+/* navbar buttons hover */
 .link[data-v-4fbac4e1] {
     transition: transform 0.69s ease-in-out;
 }
@@ -163,16 +171,18 @@ body {
 .logo img[data-v-4fbac4e1] {
     content: url(https://cdn.discordapp.com/attachments/809136394273816617/829794890518364210/nutella_avatar_logo.png);
 }
-/* avatar */
-.avatar[data-v-5445dac8] {
-max-width: 240px;
-}
 .logo:hover {
     transition: transform 0.69s ease-in-out;
     transform: scale(1.6);
     border-radius: 20px;
     overflow: hidden;
 }
+/* avatar */
+.avatar[data-v-5445dac8] {
+max-width: 240px;
+}
+
+/* Adds a gif or image to search button */
 .search[data-v-4fbac4e1]:hover svg {
     background: url(https://cdn.discordapp.com/attachments/809136394273816617/829796231563051048/kanna_search_gif.gif);
     background-repeat: no-repeat;
@@ -180,7 +190,7 @@ max-width: 240px;
     color: #0010FF00;
     transform: scale(10) translate(0px, 13px) !important;
 }
-/* Banner */
+/* Removes Banner */
 .banner {
   visibility: hidden;
 }
@@ -188,12 +198,8 @@ max-width: 240px;
   visibility: visible;
   justify-content: center;
 }
-/* Re-aligns profile picture and name. Part of shorter navbar*/
-.banner .container[data-v-5445dac8]
-{
-    max-width: 80%;
-}
-/* Container */
+
+/* Changes the Container */
 .header-wrap > .nav-wrap {
   max-width: var(--nutella-maw);
   margin: 0 auto;
@@ -232,7 +238,13 @@ max-width: 240px;
   box-shadow: var(--nutella-bs);
   backdrop-filter: blur(var(--nutella-bl));
 }
-/* Content - Overview */
+  /* Re-aligns profile picture and name. Part of shorter navbar */
+.banner .container[data-v-5445dac8]
+{
+    max-width: 80%;
+}
+
+/* Changes stuff inside container(hover and other features) */
 .content > .overview {
   margin-top: 0;
 }
@@ -298,9 +310,6 @@ max-width: 240px;
 }
 .input:hover .el-textarea__inner {
   opacity: 1;
-}
-svg:not(:root).svg-inline--fa:hover {
-  transform: scale(1.2);
 }
 .scroller > .load-more {
   margin-top: 0;
@@ -416,7 +425,7 @@ background: rgb(var(--color-background));
 .follow-card > .name {
       background: rgba(var(--color-shadow),.4);
 }
-/* Footer */
+/* Changes Footer */
 .wrap > .footer {
   position: relative;
   background: rgb(0,0,0,0.8);
@@ -434,6 +443,7 @@ background: rgb(var(--color-background));
 a, a:visited {
     color: rgb(var(--color-text));
 }
+
 /* CURSOR */
 * {
     cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963044248158268/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-cursor.png), auto;
@@ -451,26 +461,33 @@ a,
 a:link img {
     cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963046839189554/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-pointer.png), auto !important;
 }
+
+/* Adds text before 'activity' */
 .section-header[data-v-09492909]::before {
     transition: transform .7s ease-in-out;
     visibility: visible;
     content: "Leave a message <3 on   nutella♡'s";
     color: #B368E6
 }
-.activity-markdown[data-v-a640d98c]:after {
-    content: "nutellaa loves you♡ " url(https://cdn.discordapp.com/attachments/809136394273816617/829802215535017984/heartarrowww.gif);
+
+/* Adds text in message boxes */
+.activity-markdown[data-v-64116ff5]:after {
+    content: "you should go eat some nutellaa " url(https://cdn.discordapp.com/attachments/809136394273816617/834121695445909514/ezgif.com-gif-maker_3.gif);
     white-space: pre-wrap;
     font-style: italic;
     justify-content: flex-end;
     display: flex;
 }
+
+/* Adds special hover to stats overview */
 .list-stats:nth-child(1), .list-stats:nth-child(2) {
   height: calc(165px - 45px);
 }
 .list-stats:nth-child(1):hover, .list-stats:nth-child(2):hover {
   height: 165px;
 }
-/*large stats*/
+
+/* large stats */
 .favourite[data-v-5d0e8ada] {
     border-radius: 7px !important;
 }
@@ -523,10 +540,11 @@ a:link img {
     margin-right: 5px;
     background-color: rgba(var(--color-text-light));
 }
+
 .banner-content[data-v-5445dac8] {
     position: relative;
 }
-
+/* changes name size */
 .name[data-v-5445dac8] {
     font-size: 3rem;
     padding-bottom: 14px;
@@ -536,15 +554,12 @@ a:link img {
 .site-theme-dark .nav-unscoped {
     background: rgb(var(--color-foreground));
 }
-
 .site-theme-dark .nav-unscoped.transparent:hover {
     background: rgb(var(--color-foreground));
 }
-
 .header-wrap .banner {
     height: 333px;
 }
-
 .banner .container[data-v-5445dac8],
 .banner .container .banner-content {
     align-items: center;
@@ -562,6 +577,7 @@ a:link img {
     margin-top: 20px;
     position: relative;
 }
+/* Adds the kanna image in banner */
 .banner-content[data-v-5445dac8]:after{
     content: "";
     position: absolute;
@@ -574,6 +590,7 @@ a:link img {
     animation-iteration-count: infinite;
 }
 
+/* Changes the follow button */
 .actions[data-v-5445dac8] {
     min-width: 1px;
     display: flex;
@@ -588,27 +605,6 @@ a:link img {
 .dropdown[data-v-5445dac8]:hover {
     background: rgba(var(--color-overlay), 0);
 }
-.mod-badge[data-v-5445dac8] {
-    position: absolute;
-    left: 435px;
-    bottom: 61px;
-    content: "Yes";
-    font-size: 0;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    animation-name: rainbow;
-    animation-timing-function: ease-in-out;
-}
-
-.mod-badge[data-v-5445dac8]:after {
-    content: "✓";
-    font-size: 1.6rem;
-    margin-left: -2px;
-}
-
 .nav-btn[data-v-5445dac8] {
     margin-top: 150px;
     margin-left: 46px;
@@ -634,9 +630,43 @@ a:link img {
     padding: 0;
     visibility: hidden;
 }
+/* Changes 'follows you' to a tick */ 
+.mod-badge[data-v-5445dac8] {
+    position: absolute;
+    left: 435px;
+    bottom: 61px;
+    content: "Yes";
+    font-size: 0;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-name: rainbow;
+    animation-timing-function: ease-in-out;
+}
+.mod-badge[data-v-5445dac8]:after {
+    content: "✓";
+    font-size: 1.6rem;
+    margin-left: -2px;
+}
 .donator-badge[data-v-5445dac8] {
     visibility: hidden;
 }
+/* makes comments and like button bigger */
+.actions .action[data-v-64116ff5] {
+    font-size: 1.75rem;
+}
+.actions .count[data-v-64116ff5] {
+    font-size: 1.75rem;
+}
+.button[data-v-0bd85c1d] {
+    cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/834126328671633459/ezgif.com-gif-maker_4-0.png), auto;
+}
+
+
+
+/* Adds a thin border to everything in content(only use if you like) */
 .wrap[data-v-64116ff5], .input[data-v-93c5960c], .overview[data-v-5c30286e] .content-wrap, .reply[data-v-7ce9ffb8] {
     border-radius: 5px;
     border: 1px solid rgba(179,104,230,0.4);
