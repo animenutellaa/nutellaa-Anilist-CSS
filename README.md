@@ -8,7 +8,7 @@ But if you need any help with anything or have any questions, you can find my di
 
 ty @/chrisenpai and @/cakes for helping out, also ty @/anzu for some of the code i used
 
-[Guide on how custom css on anilist works.](https://github.com/Kurisu-chan/anilist-css#anilist-css)
+[Guide on how custom css on anilist works.](https://github.com/Kurisu-chan/anilist-css#super-easy-installation-guide)
 
 What my current CSS looks like before and after![nutellaa's profile · AniList - Google Chrome 17_04_2021 06_58_42](https://user-images.githubusercontent.com/82683011/115103546-899b8880-9f4a-11eb-8632-d3a4b3e586df.png)
 
