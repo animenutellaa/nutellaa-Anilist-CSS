@@ -11,7 +11,7 @@
   --nutella-ph: 30px; /* Horizontal Content Padding */
   --nutella-bt: 0.3;  /* Content Background Transparency*/
   --nutella-nr: 30px; /* Navbar Border Radius */
-  --nutella-nl: 66%;  /* Navbar Length */
+  --nutella-nl: 75%;  /* Navbar Length */
   --nutella-sb: 4px;  /* Scrollbar Width */
   --nutella-vs: 0.93;  /* Scale For Various Elements */
   --nutella-vb: 2px;  /* Various Avatar Border Thickness */
@@ -34,7 +34,10 @@
   --nutella-ns: rgba(0, 0, 0, 0.07) 0px 1px 2px, /* Box Shadow For Navbar */
                rgba(0, 0, 0, 0.07) 0px 2px 4px;
 
- /* Avatar Settings */
+  /* Avatar Settings */
+  --nutella-as: 100px;   /* Avatar Size: One Value = Square, Two Values = Rectangle */
+  --nutella-ap: 50% 20%; /* Inner Avatar Position */
+  --nutella-ai: 150%;
   --nutella-ab: 5px;   /* Avatar Border Thickness */
   --nutella-ar: 255px;  /* Avatar Border Radius */
   --nutella-at: all 1s ease-in-out; /* Avatar Hover Transition */
@@ -73,39 +76,12 @@ Dark Theme
     --color-blue-dim:               91, 75, 64;
     --color-green:                  169, 126, 73;
 }
-/* animation for kanna in banner */
+/* animation for avatar */
 
 :root {
     --animate-duration: 1s;
     --animate-delay: 1s;
     --animate-repeat: 1
-}
-@keyframes rubberBand{
-    0%,
-    to {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0)
-    }
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-        -webkit-transform: translate3d(0, -10px, 0);
-        transform: translate3d(0, -10px, 0)
-    }
-    20%,
-    40%,
-    60%,
-    80% {
-        -webkit-transform: translate3d(0, 10px, 0);
-        transform: translate3d(0, 10px, 0)
-    }
-}
-
-.animate__rubberBand {
-    -webkit-animation-name: rubberBand;
-    animation-name: rubberBand
 }
 @keyframes shakeY {
     0%,
@@ -129,7 +105,6 @@ Dark Theme
         transform: translate3d(0, 10px, 0)
     }
 }
-
 .animate__shakeY {
     -webkit-animation-name: shakeY;
     animation-name: shakeY
@@ -139,21 +114,22 @@ Dark Theme
 
 /* adds background image */
 body {
-    background-image: url("https://cdn.discordapp.com/attachments/809136394273816617/829811247285141504/css_anilist_background_1_1_1_1.png");
+    background-image: url("https://cdn.discordapp.com/attachments/809136394273816617/839542945795407952/purpleb.gif");
     background-position: 50% 50%;
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-/* changes the top home section */
+/* changes the top navbar */
 #nav {
-  background: rgba(var(--color-foreground-grey),var(--nutella-bt)) none repeat scroll 0% 0% !important;
+  background: rgba(var(--color-foreground),var(--nutella-bt)) none repeat scroll 0% 0% !important;
   border-radius: var(--nutella-nbr);
   left: var(--nutella-nbl);
   width: var(--nutella-nl);
   box-shadow: var(--nutella-bs);
   transition: background 0.8s ease 0s, top 0.5s ease 0s !important;
   backdrop-filter: blur(var(--nutella-bl));
+  height: 60px;
 }
 /* search section fix(only use with the code above) */
 .quick-search.visible[data-v-bcbe965e] {
@@ -169,7 +145,7 @@ body {
 }
 /* changes logo and adds hover */
 .logo img[data-v-4fbac4e1] {
-    content: url(https://cdn.discordapp.com/attachments/809136394273816617/829794890518364210/nutella_avatar_logo.png);
+    content: url(https://cdn.discordapp.com/attachments/809136394273816617/834643759228649472/images-removebg-preview.png);
 }
 .logo:hover {
     transition: transform 0.69s ease-in-out;
@@ -236,7 +212,6 @@ max-width: 240px;
   padding: var(--nutella-pdh);
   border-radius: var(--nutella-brb);
   box-shadow: var(--nutella-bs);
-  backdrop-filter: blur(var(--nutella-bl));
 }
   /* Re-aligns profile picture and name. Part of shorter navbar */
 .banner .container[data-v-5445dac8]
@@ -248,13 +223,16 @@ max-width: 240px;
 .content > .overview {
   margin-top: 0;
 }
-.stats-wrap > .content-wrap, .about > .content-wrap, .desktop > .content-wrap, .activity-entry > .wrap, .favourites-wrap > .favourite, .scroller > .load-more, .user-page-unscoped .markdown-editor, .el-textarea__inner, .input {
+.stats-wrap > .content-wrap, .desktop > .content-wrap, .activity-entry > .wrap, .favourites-wrap > .favourite, .scroller > .load-more, .user-page-unscoped .markdown-editor, .el-textarea__inner, .input {
   border-radius: var(--nutella-bra) !important;
   box-shadow: var(--nutella-bs);
   transition: var(--nutella-vt);
 }
 .history-day:hover {
   transform: scale(1.2);
+}
+.history-day[data-v-514856af] {
+    border-radius: 10px;
 }
 .activity-entry > .wrap {
   transition: var(--nutella-vt);
@@ -352,7 +330,7 @@ max-width: 240px;
     transform: scale(1.05);
 }
 /* Small avatar circle frame */
-.text .avatar[data-v-6c3dc0b8]  {
+.text .avatar[data-v-64116ff5] {
     border-radius: 100%;
     transition: transform .25s ease-in-out;
 }
@@ -361,14 +339,10 @@ max-width: 240px;
     border-radius: 100%;
 }
 /* Small avatar hover */
-.text .avatar[data-v-6c3dc0b8]:hover  {
+.text .avatar[data-v-64116ff5];hover {
     transform: scale(2);
 }
-/* Make Bio Longer */
-.about > .content-wrap {
-  transform: scale(1) !important;
-  max-height: none !important;
-}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
 width: var(--nutella-sb);
@@ -466,13 +440,13 @@ a:link img {
 .section-header[data-v-09492909]::before {
     transition: transform .7s ease-in-out;
     visibility: visible;
-    content: "Leave a message <3 on   nutella♡'s";
+    content: "Send thigh pics♡ on nutella's";
     color: #B368E6
 }
 
 /* Adds text in message boxes */
 .activity-markdown[data-v-64116ff5]:after {
-    content: "you should go eat some nutellaa " url(https://cdn.discordapp.com/attachments/809136394273816617/834121695445909514/ezgif.com-gif-maker_3.gif);
+    content: "nutellaa likes you <3‎‎‎‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‏‏‎ ‎‏‏‎ ‎‏‏ ‎‏‏‎ ‎‏‏ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎ ‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‎‏‏‎‎";
     white-space: pre-wrap;
     font-style: italic;
     justify-content: flex-end;
@@ -528,6 +502,7 @@ a:link img {
     display: flex;
     align-items: center;
     color: rgb(var(--color-text-light));
+    margin-right: 23px;
 }
 .list-stats[data-v-815ccddc]:nth-child(2) .stat[data-v-815ccddc]:nth-child(1) .label:before {
     content: '';
@@ -570,24 +545,9 @@ a:link img {
     display: flex;
     align-items: center;
 }
-.banner-content h1.name {
-    filter: drop-shadow(0px 0px 0px rgba(0,0,0,0));
-}
 .banner-content[data-v-5445dac8] {
     margin-top: 20px;
     position: relative;
-}
-/* Adds the kanna image in banner */
-.banner-content[data-v-5445dac8]:after{
-    content: "";
-    position: absolute;
-    background: url('https://cdn.discordapp.com/attachments/809136394273816617/831721620460011591/240-2406153_image-of-kanna-ketsu-karaage-removebg-preview.png') no-repeat 0 0;
-    display: inline-block;
-    height: 310px;
-    width: inherit;
-    left: 75%;
-    animation: shakeY 30s;
-    animation-iteration-count: infinite;
 }
 
 /* Changes the follow button */
@@ -616,6 +576,19 @@ a:link img {
     animation-iteration-count: infinite;
     animation-name: rainbow;
     animation-timing-function: ease-in-out;
+}
+.nav .link[data-v-5445dac8] {
+    margin: 0 30px;
+    font-size: 1.7rem;
+    border-bottom: 2px solid rgba(0,0,0,0);
+    transition: 0.5s;
+}
+.nav .link[data-v-5445dac8]:nth-child(7),
+.nav .link[data-v-5445dac8]:nth-child(8) {
+    width: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
 }
 .nav .link[data-v-5445dac8] {
     margin: 0 30px;
@@ -660,16 +633,22 @@ a:link img {
 .actions .count[data-v-64116ff5] {
     font-size: 1.75rem;
 }
-.button[data-v-0bd85c1d] {
-    cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/834126328671633459/ezgif.com-gif-maker_4-0.png), auto;
-}
+
 /* Adds a custom badge for users who send you a message*/
 :root, .site-theme-dark, .site-theme-contrast {
-  --ub-nutellaa:           "degenerate";
+  --ub-nutellaa:           "addict";
   --ub-anzu:               "css god";
-  
+  --ub-shinon:             "kouhai <3";
+  --ub-skylarsays:         "most popular fboy on anilist"
+  --ub-candy:              "hottest girl ever"
+  --ub-ChriSenpai          "css buddy"
+  --ub-ForeverAnimeX:      "photoshop addict"
+  --ub-paprikaosk:         "neko"
+  --ub-Duvet:              "poop sock"
+  --ub-Suck:               "amogus"
+  --ub-bishoujo69:         "fellow takayan simp"
 }
-.header[data-v-64116ff5] > a:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+.name[data-v-5a191921]::after, .name[data-v-64116ff5]::after {
   position: relative;
   top: -1px;
   left: 4px;
@@ -686,24 +665,507 @@ a:link img {
   animation-name: rainbow;
   animation-timing-function: ease-in-out;
 }
-/*use this to add custom badge*/
-/*a[href="/user/username/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
-  content: var(--ub-username);
-  }*/ 
-
 a[href="/user/nutellaa/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: var(--ub-nutellaa);
 }
+a[href="/user/shinon/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-shinon)
+}
+a[href="/user/skylarsays/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-skylarsays)
+}
+a[href="/user/candy/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-candy)
+}
+a[href="/user/anzu/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-anzu)
+}
+a[href="/user/ForeverAnimeX/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-ForeverAnimeX)
+}
+a[href="/user/paprikaosk/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-paprikaosk)
+}
+a[href="/user/Duvet/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-Duvet)
+}
+a[href="/user/Suck/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-Suck)
+}
+a[href="/user/ChriSenpai/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-ChriSenpai)
+}
+a[href="/user/bishoujo69/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
+  content: var(--ub-bishoujo69)
+}
+/* changes color of left border */
+.activity-message .text {
+    border-left: solid 5px #b368e6;
+}
+.activity-text .text {
+    border-left: solid 5px #b368e6;
+}
+.about .content-wrap[data-v-5c30286e] {
+    max-height: 750px;
+}
+.history-day.lv-1[data-v-514856af], .tooltip .circle.lv-1[data-v-514856af] {
+    background: transparent;
+    content: url(https://cdn.discordapp.com/emojis/746208584257372220.gif?v=1);
+}
+.history-day.lv-9[data-v-514856af], .tooltip .circle.lv-1[data-v-514856af] {
+    background: transparent;
+    content: url(https://cdn.discordapp.com/emojis/746208584257372220.gif?v=1);
+}
 
+.action.likes .button .fa-heart, .like-wrap.thread_comment .button .fa-heart {
+    color: #0000;
+    stroke: white;
+    stroke-width: 80;
+}
+.action.likes .button.liked .fa-heart, .like-wrap.thread_comment .button.liked .fa-heart {
+    color: var(--color-red);
+    stroke: rgba(0, 0, 0, 0);
+    stroke-width: 0;
+}
+.activity-message .wrap > .text .activity-markdown,
+.activity-text .wrap > .text .activity-markdown {
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(var(--color-text), 0.1);
+}
 
+.activity-feed .liked {
+    animation: bounceIn 1s;
+}
 
+.activity-feed .activity-entry
+.wrap .actions {
+    z-index: 1;
+}
 
-/*Extra features i dont use*/
-/* Adds a thin border to everything in content(only use if you like) */
-.wrap[data-v-64116ff5], .input[data-v-93c5960c], .overview[data-v-5c30286e] .content-wrap, .reply[data-v-7ce9ffb8] {
-    border-radius: 5px;
-    border: 1px solid rgba(179,104,230,0.4);
-    font-size: 1.3rem;
-    overflow: hidden;
-    position: relative;
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply {
+    animation: zoomIn 0.2s;
+}
+/* More Animations for content */
+@keyframes bounceIn {
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+        animation-timing-function: cubic-bezier(.215, .61, .355, 1)
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3)
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1)
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9)
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03)
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+}
+
+.animate__bounceIn {
+    -webkit-animation-duration: .75s;
+    animation-duration: .75s;
+    -webkit-animation-duration: calc(var(--animate-duration)*0.75);
+    animation-duration: calc(var(--animate-duration)*0.75);
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3)
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+.animate__zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+.animate__fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+.animate__fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight
+}
+/*.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(1) {
+    animation: fadeInRight 0.2s;
+}
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(2) {
+    animation: fadeInRight 0.2s;
+    animation-delay: 0.1s;
+}
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(3) {
+    animation: fadeInRight 0.2s;
+    animation-delay: 0.2s;
+}
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(4) {
+    animation: fadeInRight 0.2s;
+    animation-delay: 0.3s;
+}
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(5) {
+    animation: fadeInRight 0.2s;
+    animation-delay: 0.4s;
+}
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(6) {
+    animation: fadeInRight 0.2s;
+    animation-delay: 0.5s;
+}
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(7) {
+    animation: fadeInRight 0.2s;
+    animation-delay: 0.6s;
+}
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(8) {
+    animation: fadeInRight 0.2s;
+    animation-delay: 0.7s;
+}
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(9) {
+    animation: fadeInRight 0.2s;
+    animation-delay: 0.8s;
+}
+.activity-feed .activity-entry,
+.activity-feed .activity-replies .reply:nth-child(10) {
+    animation: fadeInRight 0.2s;
+    animation-delay: 0.9s;
+}
+/* add search anilist thing*/
+.nav .wrap {
+    display: grid;
+    grid-template-columns: 70px auto auto 70px;
+}
+.nav .wrap .links {
+    grid-column-start: 3;
+    margin-left: -25px;
+}
+.nav .wrap .search {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 35px;
+    width: 100%;
+    cursor: text;
+    font-family: "Overpass"
+}
+.nav .wrap .search:after {
+    content: "Search AniList";
+    margin-left: 10px;
+    color: #777a9e;
+}
+.nav .wrap .user {
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+/* adds avatar spin on messages */
+.wrap:hover .header > .avatar, .users > .user:hover, .reply:hover .header > .avatar {
+    border-color: #B368E6;
+    transform: scale(1.6) rotate(360deg);
+}
+<style>
+.header > .avatar, .users > .user {
+    opacity: var(--nutella-vo);
+    transition: var(--nutella-vt);
+    border: 2px solid #B368E6;
+}
+.wrap:hover .header > .avatar, .users > .user:hover, .reply:hover .header > .avatar {
+    opacity: var(--nutella-vo);
+    transition: var(--nutella-vt);
+    border: 2px solid #B368E6;
+}
+/* moves avatar to the center */
+.banner-content[data-v-5445dac8] {
+    width: 50%;
+}
+
+/*===============================================
+    Overlay (written by cakes)
+===============================================*/
+
+.overview > .section > .about > .content-wrap > .markdown b[href="overlay"] {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+
+  top: 0;
+  left: -500px;
+  background: rgb(var(--color-foreground));
+  z-index: 100;
+
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+
+  transition: left 0.3s ease-in-out;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]:focus-within {
+  left: 0;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]
+  > b[href="arrow"] {
+  width: 40px;
+  height: 100px;
+  background: rgb(var(--color-foreground));
+
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+
+  position: fixed;
+  top: calc(50% - 50px);
+  left: 0;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]
+  > b[href="arrow"]
+  > a {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]
+  > b[href="arrow"]
+  > a::after {
+    content: '';
+    mask: url(https://criolaservice.by/AL-css/svg/chevron-right.svg) no-repeat 50% 50%;
+    -webkit-mask: url(https://criolaservice.by/AL-css/svg/chevron-right.svg) no-repeat 50% 50%;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    width: 13px;
+    height: 16px;
+    margin-right: 5px;
+    background-color: rgba(var(--color-text-light));
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]:focus-within
+  > b[href="arrow"] {
+  width: 100%;
+  height: 100%;
+  transition: all 0s linear;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]:focus-within
+  > b[href="arrow"]
+  > a {
+  width: 0;
+  height: 0;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]:focus-within
+  > b[href="arrow"]
+  > a::after {
+  content: "";
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]:focus-within
+  > a[href="#"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]
+  > b[href="list"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-bottom: auto;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1000;
+  pointer-events: none;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]
+  > b[href="list"]
+  > a {
+  width: 90%;
+  text-align: center;
+  padding: 70px 0px;
+  color: white;
+  font-weight: 400;
+  font-size: 3rem;
+  border-radius: 20px !important;
+  pointer-events: auto;
+  transition: background linear 0.35s;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]
+  > b[href="list"]
+  > a:hover {
+  background: rgba(0, 0, 0, 0.3);
+  transition: background linear 0.1s;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]
+  > b[href="list"]
+  > a:nth-of-type(1)::after {
+    content: 'aaaaa';
+    background-image: url(https://cdn.discordapp.com/attachments/809136394273816617/819372281943687228/1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    color: rgba(0,0,0,0);
+    padding: 50px 30px;
+}
+.overview
+  > .section
+  > .about
+  > .content-wrap
+  > .markdown
+  b[href="overlay"]
+  > b[href="list"]
+  > a:nth-of-type(2)::after {
+    content: 'aaaaa';
+    background-image: url(https://cdn.discordapp.com/attachments/809136394273816617/819372316039446578/3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    color: rgba(0,0,0,0);
+    padding: 50px 30px;
+  }
+/* changes the font for a few things */
+.name[data-v-5445dac8] {
+    font-family: cursive;
+}
+body {
+    font-family: cursive;
+}
+.link[data-v-4fbac4e1] {
+    font-family: cursive;
+}
+.nav .link[data-v-5445dac8] {
+    font-family: cursive;
+}
+/* animation on avatar */
+.avatar[data-v-5445dac8] {
+    margin-top: 15px;
+    animation: shakeY 30s;
+    animation-iteration-count: infinite;
 }
