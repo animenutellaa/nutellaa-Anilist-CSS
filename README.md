@@ -13,11 +13,11 @@ There are small comments next to most parts of the code that say what it does to
 - Changed up the font in some areas.
 - Added user badges for some users that send messages.
 
-(btw i update my css frequently with more changes to make it better so the one you see below is not the final one, as i get better at this i will probably add more code)
-
 ty [chrisenpai](https://anilist.co/user/ChriSenpai/) and [cakes](https://anilist.co/user/cakes/) for helping out, also ty [anzu](https://anilist.co/user/Anzu/) and [sigma](https://anilist.co/user/Sigma/) for some of the code I used and modified.
 
 [Guide on how custom css on anilist works and simple features](https://github.com/Kurisu-chan/anilist-css#super-easy-installation-guide)
+
+(btw i update my css frequently with more changes to make it better so the screenshot you see below is not the final one, as i get better at this i will probably add more code)
 
 What my current CSS looks like before and after(17/04/2021)![nutellaa's profile · AniList - Google Chrome 17_04_2021 06_58_42](https://user-images.githubusercontent.com/82683011/115103546-899b8880-9f4a-11eb-8632-d3a4b3e586df.png)
 
