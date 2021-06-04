@@ -1,69 +1,35 @@
-/* Be careful since its intended for my profile, you will have to change a few things around for your own */
+/* Be careful since its for my profile, you will have to change a few things around for your own */
 
-/* box shadow */
-:root, .site-theme-dark, .site-theme-contrast {
-  --nutella-bs: rgba(0, 0, 0, 0.07) 0px 1px 2px,
-               rgba(0, 0, 0, 0.07) 0px 2px 4px,
-               rgba(0, 0, 0, 0.07) 0px 4px 8px,
-               rgba(0, 0, 0, 0.07) 0px 8px 16px;
-  --nutella-ns: rgba(0, 0, 0, 0.07) 0px 1px 2px,
-               rgba(0, 0, 0, 0.07) 0px 2px 4px;
-}
-Dark Theme
-.site-theme-dark {
-    --color-background:             15, 23, 25;
-    --color-foreground:             28, 36, 38;
-    --color-foreground-grey:        20, 28, 30;
-    --color-text:                   141, 138, 134; 
-    --color-text-light:             156, 153, 149;
-    --color-blue:                   169, 126, 73;
-    --color-blue-dim:               91, 75, 64;
-}
-/* animation for avatar */
-:root {
-    --animate-duration: 1s;
-    --animate-delay: 1s;
-    --animate-repeat: 1
-}
-@keyframes shakeY {
-    0%,
-    to {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0)
-    }
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-        -webkit-transform: translate3d(0, -10px, 0);
-        transform: translate3d(0, -10px, 0)
-    }
-    20%,
-    40%,
-    60%,
-    80% {
-        -webkit-transform: translate3d(0, 10px, 0);
-        transform: translate3d(0, 10px, 0)
-    }
-}
-.animate__shakeY {
-    -webkit-animation-name: shakeY;
-    animation-name: shakeY
-}
-/* CODE */
+@import url("https://fonts.googleapis.com/css?family=K2D");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+/*╔═════════════╗
+        HEADER AREA
+  ╚═════════════╝*/
 
 /* adds background image */
-body {
-    background-image: url("https://cdn.discordapp.com/attachments/809136394273816617/844296610246819921/dark-purple-graphic-powerpoint.jpg");
-    background-position: 50% 50%;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+
+.page-content {
+  background-image: url("https://i.imgur.com/C3X9BhL.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
+/* Removes Banner */
+
+.banner {
+  visibility: hidden;
+}
+
+.banner>.container {
+  visibility: visible;
+  justify-content: center;
+}
+
 /* changes the top navbar */
+
 #nav {
-  background: rgb(var(--color-foreground)) none repeat scroll 0% 0% !important;
+  background: rgb(0, 0, 0) none repeat scroll 0% 0% !important;
   border-radius: 0 0 30px 30px;
   left: calc((100% - 80%) / 2);
   width: 80%;
@@ -72,58 +38,281 @@ body {
   backdrop-filter: blur(4px);
   height: 60px;
 }
+
 /* search section fix(only use with the code above) */
+
 .quick-search.visible {
-    left: auto;
+  left: auto;
 }
-/* navbar buttons hover */
-.link[data-v-4fbac4e1] {
-    transition: transform 0.69s ease-in-out;
+
+/* nav buttons hover */
+
+#nav .link {
+  transition: transform 0.69s ease-in-out;
 }
-.link[data-v-4fbac4e1]:hover {
-    transform: scale(1.2);
-    color: #B368E6
+
+#nav .link:hover {
+  transform: scale(1.2);
+  color: #EF881A
 }
+
 /* changes logo and adds hover */
-.logo img[data-v-4fbac4e1] {
-    content: url(https://cdn.discordapp.com/attachments/809136394273816617/834643759228649472/images-removebg-preview.png);
+
+.logo img {
+  content: url(https://cdn.discordapp.com/attachments/809136394273816617/834643759228649472/images-removebg-preview.png);
 }
+
 .logo:hover {
-    transition: transform 0.69s ease-in-out;
-    transform: scale(1.6);
-    border-radius: 20px;
-    overflow: hidden;
+  transition: transform 0.69s ease-in-out;
+  transform: scale(1.6);
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 /* Adds a gif or image to search button */
+
 .search[data-v-4fbac4e1]:hover svg {
-    background: url(https://cdn.discordapp.com/attachments/809136394273816617/829796231563051048/kanna_search_gif.gif);
-    background-repeat: no-repeat;
-    background-size: contain;
-    color: #0010FF00;
-    transform: scale(10) translate(0px, 13px) !important;
-}
-/* Removes Banner */
-.banner {
-  visibility: hidden;
-}
-.banner > .container {
-  visibility: visible;
-  justify-content: center;
+  background: url(https://cdn.discordapp.com/attachments/809136394273816617/829796231563051048/kanna_search_gif.gif);
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: #0010FF00;
+  transform: scale(10) translate(0px, 13px) !important;
 }
 
-/* Changes the Container */
-.header-wrap > .nav-wrap {
+/* add search anilist thing */
+
+.nav .wrap {
+  display: grid;
+  grid-template-columns: 70px auto auto 70px;
+}
+
+.nav .wrap .links {
+  grid-column-start: 3;
+  margin-left: -25px;
+}
+
+.nav .wrap .search {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  padding: 10px;
+  background: rgb(16 16 16);
+  box-shadow: var(--nutella-bs);
+  border-radius: 35px;
+  width: 100%;
+  cursor: text;
+  font-family: "Overpass"
+}
+
+.nav .wrap .search:after {
+  content: "Search AniList";
+  margin-left: 10px;
+  color: #777a9e;
+}
+
+.nav .wrap .user {
+  grid-column-start: 4;
+  grid-row-start: 1;
+}
+
+/* Re-aligns profile picture and name */
+
+.banner>.container {
+  max-width: 80%;
+  align-items: center;
+}
+
+.header-wrap .banner {
+  height: 333px;
+}
+
+.header-wrap .nav-wrap {
+  background: rgb(0, 0, 0);
+}
+
+.banner .container .banner-content {
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+  width: 50%;
+}
+
+.banner .container[data-v-4f7beb35] {
+  align-items: center;
+}
+
+/* changes name size */
+
+.banner-content .name {
+  font-size: 3.75rem;
+  padding: 65px 50px 0px 0px;
+  display: flex;
+  align-items: center;
+  filter: drop-shadow(0px 0px 3px black);
+}
+
+/* Changes the follow button */
+
+.banner-content>.actions {
+  min-width: 1px;
+  display: flex;
+  align-items: center;
+  margin-left: -290px;
+}
+
+.banner-content>.actions>.dropdown {
+  margin-top: 150px;
+  margin-left: -242px;
+  background: rgba(var(--color-overlay), 0);
+}
+
+.banner-content>.actions .nav-btn {
+  background: rgb(0, 0, 0);
+  margin-top: 150px;
+  margin-left: 95px;
+  border-radius: 5px;
+  padding: 7px 26px;
+  width: 150px;
+  transition: all ease-in-out 0.69s;
+}
+
+.banner-content>.actions .nav-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Changes 'follows you' to a tick */
+
+.banner-content>.mod-badge-wrap {
+  background: #000;
+  position: absolute;
+  left: 187px;
+  bottom: -18px;
+  content: "Yes";
+  border-radius: 5px;
+  padding: 5px 36px;
+}
+
+.banner-content>.mod-badge-wrap:after {
+  content: "♡";
+  font-size: 1.6rem;
+  margin-left: -2px;
+}
+
+.header-wrap .donator-badge {
+  visibility: hidden;
+}
+
+/* animation on avatar */
+
+.banner-content>.avatar {
+  margin-top: 20px;
+  animation: shakeY 30s;
+  animation-iteration-count: infinite;
+  max-height: 269px;
+  max-width: 188px;
+}
+
+/* shine effect (thanks to cakes) */
+
+.banner-content .name {
+  background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+  background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
+  -webkit-background-size: 200px;
+  color: rgba(255, 255, 255, .6);
+  -webkit-background-clip: text;
+  -webkit-animation-name: shine;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
+}
+
+/*╔═══════════════╗
+     CONTAINER + 2nd NAV
+  ╚═══════════════╝*/
+
+.content.container {
+  background: rgba(0, 0, 0, 0.5);
+  max-width: 80%;
+  padding: 30px 30px;
+  border-radius: 0 0 15px 15px;
+  box-shadow: var(--nutella-bs);
+}
+
+.nav[data-v-4f7beb35] {
+  padding-left: 100px;
+}
+
+.header-wrap>.nav-wrap {
   max-width: 80%;
   margin: 0 auto;
   border-radius: 15px 15px 0 0;
   box-shadow: var(--nutella-ns);
   position: relative;
 }
-.nav > .link {
+
+/* changes 2nd nav */
+
+/* hides reviews + submissions */
+
+.nav .link:nth-child(7), .nav .link:nth-child(8) {
+  width: 0;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+}
+
+/* NAVBAR ICONS */
+
+.header-wrap .nav-wrap .link {
+  font-size: 1.5rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  transition: 0.5s;
+  padding: 15px 0px 15px 0px;
+  margin: 0px 30px;
+}
+
+.header-wrap .nav-wrap .link:nth-child(1):before {
+  font-family: "FontAwesome";
+  font-size: 15px;
+  content: "\f015";
+}
+
+.header-wrap .nav-wrap .link:nth-child(2):before {
+  font-family: "FontAwesome";
+  font-size: 15px;
+  content: "\f26c";
+}
+
+.header-wrap .nav-wrap .link:nth-child(3):before {
+  font-family: "FontAwesome";
+  font-size: 15px;
+  content: "\f02d";
+}
+
+.header-wrap .nav-wrap .link:nth-child(4):before {
+  font-family: "FontAwesome";
+  font-size: 15px;
+  content: "\f004";
+}
+
+.header-wrap .nav-wrap .link:nth-child(5):before {
+  font-family: "FontAwesome";
+  font-size: 15px;
+  content: "\f080";
+}
+
+.header-wrap .nav-wrap .link:nth-child(6):before {
+  font-family: "FontAwesome";
+  font-size: 15px;
+  content: "\f27b";
+}
+
+/* adds link active affect */
+
+.nav>.link {
   position: relative;
 }
-.nav > .link::after {
+
+.nav>.link::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -133,530 +322,765 @@ body {
   background: rgb(var(--color-blue));
   transition: all 0.3s ease-in-out;
 }
-.nav > .router-link-active::after {
+
+.nav>.router-link-active::after {
   left: 0;
   width: 100%;
   background: rgb(var(--color-blue-dim));
 }
-.nav > .link:hover::after {
+
+.nav>.link:hover::after {
   left: 0;
   width: 100%;
   background: rgb(var(--color-blue));
 }
-.content.container {
-  background: rgba(var(--color-foreground-grey),0.3);
-  max-width:80%;
-  padding: 30px 30px;
-  border-radius: 0 0 15px 15px;
-  box-shadow: var(--nutella-bs);
-}
-  /* Re-aligns profile picture and name. Part of shorter navbar */
-  .banner > .container {
-    max-width: 80%;
-}
 
-/* Changes stuff inside container(hover and other features) */
-.content > .overview {
+/*╔═══════════════╗
+        HOVER in container
+  ╚═══════════════╝ */
+
+.content>.overview {
   margin-top: 0;
 }
-.stats-wrap > .content-wrap, .desktop > .content-wrap, .activity-entry > .wrap, .favourites-wrap > .favourite, .scroller > .load-more, .user-page-unscoped .markdown-editor, .el-textarea__inner, .input {
+
+.stats-wrap>.content-wrap, .desktop>.content-wrap, .activity-entry>.wrap, .favourites-wrap>.favourite, .scroller>.load-more, .user-page-unscoped .markdown-editor, .el-textarea__inner, .input {
   border-radius: 15px 15px 15px 15px !important;
   box-shadow: var(--nutella-bs);
   transition: all 0.69s ease-in-out;
 }
-/* activity history */
-.history-day:hover {
-  transform: scale(1.2);
-}
-.history-day[data-v-514856af] {
-    border-radius: 10px;
-}
+
 /* activity messages */
-.activity-entry > .wrap {
+
+.activity-entry>.wrap {
   transition: all 0.69s ease-in-out;
   max-height: none;
 }
+
 .activity-entry:hover .wrap {
-  transform: scale(1.05); 
+  transform: scale(1.05);
   max-height: none;
 }
-.wrap > .text {
+
+/* adds avatar spin on messages */
+
+.wrap:hover .header>.avatar, .users>.user:hover, .reply:hover .header>.avatar {
+  border-color: #EF881A;
+  transform: scale(1.5) rotate(360deg);
+}
+
+.wrap:hover .header>.avatar, .users>.user:hover, .reply:hover .header>.avatar {
+  transition: all 0.69s ease-in-out;
+  border: 2px solid #EF881A;
+}
+
+.wrap>.text {
   padding-top: 15px;
 }
-.text > .activity-markdown > .markdown {
+
+.text>.activity-markdown>.markdown {
   max-height: none;
 }
-.header > .avatar, .list > .cover {
+
+.header>.avatar, .list>.cover {
   transition: all 0.69s ease-in-out;
 }
+
 .wrap:hover .cover {
   opacity: 1;
 }
-.header > .avatar, .users > .user {
+
+.header>.avatar, .users>.user {
   transition: all 0.69s ease-in-out;
   border-radius: 255px !important;
 }
-.wrap:hover .header > .avatar, .users > .user:hover, .reply:hover .header > .avatar {
+
+.wrap:hover .header>.avatar, .users>.user:hover, .reply:hover .header>.avatar {
   opacity: 1;
   border-color: rgb(var(--color-blue));
 }
-.header > .name {
+
+.header>.name {
   transition: all 0.69s ease-in-out;
 }
-.wrap:hover .header > .name {
+
+.wrap:hover .header>.name {
   opacity: 1;
 }
+
 .activity-entry, .input, svg:not(:root).svg-inline--fa {
   transition: all 0.69s ease-in-out;
 }
+
 .list .title, .input .el-textarea__inner {
   transition: all 0.69s ease-in-out;
 }
+
 .activity-manga_list:hover, .activity-anime_list:hover {
-  transform: scale(1.05);  
+  transform: scale(1.05);
 }
+
 .activity-manga_list:hover .title, .activity-anime_list:hover .title {
   opacity: 1;
 }
+
 .input:hover {
   transform: scale(1.025);
 }
+
 .input:hover .el-textarea__inner {
   opacity: 1;
 }
-.scroller > .load-more {
+
+.scroller>.load-more {
   margin-top: 0;
 }
-.scroller > .load-more:hover {
+
+.scroller>.load-more:hover {
   color: rgb(var(--color-blue));
   box-shadow: var(--nutella-bs);
   transform: scale(1.025);
 }
-.activity-replies > .reply {
+
+.activity-replies>.reply {
   border-radius: 15px;
 }
-.reply:hover .header > .name {
+
+.reply:hover .header>.name {
   opacity: 1;
 }
 
-/* hover for different things */
-.overview .favourites > .favourites-wrap {
+/* favourites section hover */
+
+.overview .favourites>.favourites-wrap {
   overflow: visible;
 }
-/* favourites section hover */
+
 .favourites .favourite:hover {
   transition: transform 0.69s ease-in-out;
   transform: scale(1.33);
   z-index: 20;
 }
+
 .genre-overview {
-    transition: transform 0.5s;
+  transition: transform 0.5s;
 }
+
 .genre-overview:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
+
+/*╔══════════════╗
+      ACTIVITY HISTORY
+  ╚══════════════╝*/
+
 .activity-history {
-    transition: transform 0.5s;
+  transition: transform 0.5s;
 }
+
 .activity-history:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 4px;
-    background: #000;
-}
-::-webkit-scrollbar-corner {
-    background: #000;
-}
-::-webkit-scrollbar-thumb {
-    background: #B368E6;
-    -webkit-border-radius: 1ex;
-}
-.about .content-wrap[data-v-5c30286e]::-webkit-scrollbar       {
-    background-color: rgba(255, 255, 255, 0); 
-    width:4px
-}
-.about .content-wrap[data-v-5c30286e]::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, 0);
-}
-.about .content-wrap[data-v-5c30286e]::-webkit-scrollbar-thumb {
-    background-color: rgba(196, 196, 240, 0.20); 
-    border-radius:10px;
+.history-day.lv-1[data-v-514856af], .tooltip .circle.lv-1[data-v-514856af] {
+  background: transparent;
+  content: url(https://cdn.discordapp.com/attachments/850477947772731452/850479214402469888/coincss.gif);
+  transform: scale(1);
 }
 
-/* Content - Anime List / Manga List */
-.content > .medialist {
-  margin-top: 0;
-}
-/* Content - Favorites */
-.favourites {
-  margin-top: 0 !important;
-}
-/* Content - Stats */
-.content > .stats {
-  margin-top: 0;
-}
-/* Content - Social */
-.content > .user-social {
-  margin-top: 0;
-}
-.filter-group span:hover {
-  background: rgb(var(--color-foreground));
-  color: rgb(var(--color-blue));
-}
-.follow-card {
-  border-radius: 255px;
-  transition: all 0.69s ease-in-out;
-}
-.follow-card > .avatar {
-  border: 4px solid rgb(var(--color-background));
-  border-radius: 255px !important;
-  transition: all 0.69s ease-in-out;
-}
-.follow-card:hover, .follow-card > .avatar:hover {
-  opacity: 1;
-  transform: scale(1.1);
-  border-color: rgb(var(--color-blue));
-}
-.follow-card > .name {
-      background: rgba(var(--color-shadow),.4);
-}
-/* Changes Footer */
-.wrap > .footer {
-  position: relative;
-  background: rgb(0,0,0,0.8);
-  border-radius: 30px 30px 0 0;
-  left: calc((100% - 85%) / 2);
-  width: 85%;
-  box-shadow: var(--nutella-bs);
-}
-.theme-selector > .dark {
-  background: #000;
-}
-.theme-selector > h2 {
-  color: #B368E6;
-}
-a, a:visited {
-    color: rgb(var(--color-text));
+.history-day.lv-9[data-v-514856af], .tooltip .circle.lv-1[data-v-514856af] {
+  background: transparent;
+  content: url(https://cdn.discordapp.com/attachments/850477947772731452/850479214402469888/coincss.gif);
+  transform: scale(1);
 }
 
-/* CURSOR */
-* {
-    cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963044248158268/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-cursor.png), auto;
-}
-a[href],
-input[type='submit'],
-input[type='image'],
-label[for],
-select,
-button,
-.pointer {
-    cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963046839189554/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-pointer.png), auto;
-}
-a,
-a:link img {
-    cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963046839189554/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-pointer.png), auto !important;
+.desktop>.activity-history {
+  grid-gap: 10px 0px;
+  grid-template-rows: repeat(9, 1fr);
 }
 
-/* Adds text before 'activity' */
+.activity-history.content-wrap>.history-day {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+}
+
+.history-day.lv-0 {
+  border-radius: 10px;
+}
+
+/* LIKE BUTTON ANIMATION */
+
+.button.liked svg[data-icon="heart"] path {
+  transform-origin: center;
+  animation: animateHeart 1.5s infinite;
+}
+
+.activity-feed .activity-entry .wrap .actions {
+  z-index: 1;
+}
+
+.activity-feed .activity-entry, .activity-feed .activity-replies .reply {
+  animation: zoomIn 0.2s;
+}
+
+/* changes color of left border */
+
+.activity-message .text {
+  border-left: solid 3px #000;
+}
+
+.activity-text .text {
+  border-left: solid 7px #EF881A;
+}
+
+/*╔═════════════════╗
+      HOVER IN BIO SOCIALS
+  ╚═════════════════╝*/
+
+img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372285059268646/6.png"], img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372316039446578/3.png"], img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372281943687228/1.png"] {
+  transition: transform 0.3s linear;
+}
+
+/*img[src="https://i.imgur.com/mT8zWua.png"]:hover,
+img[src="https://i.imgur.com/1JyDZCA.png"]:hover,*/
+
+img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372285059268646/6.png"]:hover, img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372316039446578/3.png"]:hover, img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372281943687228/1.png"]:hover {
+  transform: scale(1.2)
+}
+
+.about .content-wrap[data-v-5c30286e] {
+  border-radius: 15px;
+}
+
+/*changes the bio video borders */
+
+.markdown video {
+  border-radius: 15px;
+}
+
+/* changes size of section headers */
+
+.overview .section-header {
+  font-size: 150%;
+  color: #EF881A;
+  filter: drop-shadow(0px 0px 1px black);
+}
+
+/*╔═════════════════╗
+     Adds Text in Activity section
+  ╚═════════════════╝*/
+
 .section-header[data-v-09492909]::before {
-    transition: transform .7s ease-in-out;
-    visibility: visible;
-    content: "nutella♡'s";
-    color: #B368E6
+  transition: transform .7s ease-in-out;
+  visibility: visible;
+  content: "nutella♡'s";
+  color: #EF881A
 }
 
-/* Adds text in message boxes */
-.activity-markdown[data-v-64116ff5]:after {
-    content: "nutellaa likes you <3‎‎‎‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‏‏‎ ‎‏‏‎ ‎‏‏ ‎‏‏‎ ‎‏‏ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎ ‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‎‏‏‎‎";
-    white-space: pre-wrap;
-    font-style: italic;
-    justify-content: flex-end;
-    display: flex;
+.activity-markdown:after {
+  content: "nutellaa likes you <3‎‎‎‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‏‏‎ ‎‏‏‎ ‎‏‏ ‎‏‏‎ ‎‏‏ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎ ‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‎‏‏‎‎";
+  white-space: pre-wrap;
+  font-style: italic;
+  justify-content: flex-end;
+  display: flex;
+}
+
+/*╔═════════════════╗
+           STATS OVERVIEW
+  ╚═════════════════╝*/
+
+.stats-wrap[data-v-815ccddc] {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 10px;
+  grid-template-columns: auto auto;
+  padding: 20px 40px;
+  text-align: left;
+  background: rgb(0, 0, 0);
+}
+
+.stat[data-v-815ccddc]:nth-child(1) {
+  grid-row-start: span 2;
+}
+
+.stat:nth-child(1) .value[data-v-815ccddc] {
+  font-size: 5.5rem;
+}
+
+.stat .value[data-v-815ccddc] {
+  font-size: 2rem;
+  padding-bottom: 0px;
+}
+
+.stat .label[data-v-815ccddc] {
+  font-size: 1.2rem;
+}
+
+.list-stats[data-v-815ccddc]:nth-child(1) .stat[data-v-815ccddc]:nth-child(1) .label:before {
+  content: '';
+  mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50% 50%;
+  -webkit-mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50% 50%;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  width: 19px;
+  height: 16px;
+  margin-right: 5px;
+  background-color: rgba(var(--color-text-light));
+}
+
+.list-stats[data-v-815ccddc]:nth-child(2) .stat[data-v-815ccddc]:nth-child(1) .label, .list-stats[data-v-815ccddc]:nth-child(1) .stat[data-v-815ccddc]:nth-child(1) .label {
+  display: flex;
+  align-items: center;
+  color: rgb(var(--color-text-light));
+  margin-right: 33px;
+  margin-left: 9px;
+}
+
+.list-stats[data-v-815ccddc]:nth-child(2) .stat[data-v-815ccddc]:nth-child(1) .label:before {
+  content: '';
+  mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50% 50%;
+  -webkit-mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50% 50%;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  width: 13px;
+  height: 16px;
+  margin-right: 5px;
+  background-color: rgba(var(--color-text-light));
 }
 
 /* Adds special hover to stats overview */
+
 .list-stats:nth-child(1), .list-stats:nth-child(2) {
   height: calc(165px - 45px);
 }
+
 .list-stats:nth-child(1):hover, .list-stats:nth-child(2):hover {
   height: 165px;
 }
+
 .stats-wrap[data-v-5c30286e] {
   grid-column-gap: 7px;
   /* grid-template-columns: 1fr 1fr; */
   grid-row-gap: 5px;
 }
 
-/* large stats */
-.favourite[data-v-5d0e8ada] {
-    border-radius: 7px !important;
-}
-.stats-wrap[data-v-815ccddc] {
-    display: grid;
-    grid-auto-flow: row;
-    grid-row-gap: 10px;
-    grid-template-columns: auto auto;
-    padding: 20px 40px;
-    text-align: left;
-}
-.stat[data-v-815ccddc]:nth-child(1) {
-    grid-row-start: span 2;
-}
-.stat:nth-child(1) .value[data-v-815ccddc] {
-    font-size: 5.5rem;
-}
-.stat .value[data-v-815ccddc] {
-    font-size: 2rem;
-    padding-bottom: 0px;
-}
-.stat .label[data-v-815ccddc] {
-    font-size: 1.2rem;
-}
-.list-stats[data-v-815ccddc]:nth-child(1) .stat[data-v-815ccddc]:nth-child(1) .label:before {
-    content: '';
-    mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50% 50%;
-    -webkit-mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50% 50%;
-    mask-size: cover;
-    -webkit-mask-size: cover;
-    width: 19px;
-    height: 16px;
-    margin-right: 5px;
-    background-color: rgba(var(--color-text-light));
-}
-.list-stats[data-v-815ccddc]:nth-child(2) .stat[data-v-815ccddc]:nth-child(1) .label,
-.list-stats[data-v-815ccddc]:nth-child(1) .stat[data-v-815ccddc]:nth-child(1) .label {
-    display: flex;
-    align-items: center;
-    color: rgb(var(--color-text-light));
-    margin-right: 23px;
-}
-.list-stats[data-v-815ccddc]:nth-child(2) .stat[data-v-815ccddc]:nth-child(1) .label:before {
-    content: '';
-    mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50% 50%;
-    -webkit-mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50% 50%;
-    mask-size: cover;
-    -webkit-mask-size: cover;
-    width: 13px;
-    height: 16px;
-    margin-right: 5px;
-    background-color: rgba(var(--color-text-light));
+.milestones[data-v-815ccddc] {
+  background: black;
 }
 
-/* changes name size */
-.banner-content .name {
-    font-size: 3rem;
-    padding-bottom: 14px;
-    padding-left: 0px;
-}
-.header-wrap .banner {
-    height: 333px;
-}
-.banner .container[data-v-de544782],
-.banner .container .banner-content {
-    align-items: center;
-}
-.banner-content .name {
-  font-size: 5rem;
-    padding: 30px 50px 0px 0px;
-    display: flex;
-    align-items: center;
-}
-.banner-content[data-v-de544782] {
-    margin-top: 20px;
-    position: relative;
-    width: 50%;
+/* LIKE BUTTON SIZE */
+
+.actions .action {
+  font-size: 1.44rem;
 }
 
-/* Changes the follow button */ 
-.banner-content > .actions {
-    min-width: 1px;
-    display: flex;
-    align-items: center;
-    margin-left: -290px;
-}
-.banner-content > .actions > .dropdown {
-    margin-top: 150px;
-    margin-left: -242px;
-    background: rgba(var(--color-overlay), 0);
-}
-.banner-content > .actions .nav-btn {
-    background: rgb(var(--color-foreground));
-    margin-top: 150px;
-    margin-left: 46px;
-    border-radius: 20px;
-    width: 200px;
-}
-
-/* changes nav some more */
-.nav .link[data-v-de544782] {
-    margin: 0 30px;
-    font-size: 1.7rem;
-    border-bottom: 2px solid rgba(0,0,0,0);
-    transition: 0.5s;
-}
-.nav .link[data-v-de544782]:nth-child(7),
-.nav .link[data-v-de544782]:nth-child(8) {
-    width: 0;
-    margin: 0;
-    padding: 0;
-    visibility: hidden;
-}
-
-/* Changes 'follows you' to a tick */ 
-.banner-content > .mod-badge-wrap {
-    background: #000;
-    position: absolute;
-    left: 435px;
-    bottom: 53px;
-    content: "Yes";
-    font-size: 0;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    padding-top: 6px;
-    padding-left: 9px;
-}
-.banner-content > .mod-badge-wrap:after {
-    content: "♡";
-    font-size: 1.6rem;
-    margin-left: -2px;
-}
-.header-wrap .donator-badge {
-    visibility: hidden;
-}
-/* makes comments and like button bigger */
-.actions .action[data-v-1bf2cf4e] {
-    font-size: 1.75rem;
-}
 .actions .count[data-v-1bf2cf4e] {
-    font-size: 1.75rem;
+  font-size: 1.44rem;
 }
 
-/* Adds a custom badge for users who send you a message*/
-.text > .header > .name::after {
+/*╔═════════════╗
+          SCROLLBAR
+  ╚═════════════╝*/
+
+::-webkit-scrollbar {
+  width: 4px;
+  background: #000;
+}
+
+::-webkit-scrollbar-corner {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #EF881A;
+  -webkit-border-radius: 1ex;
+}
+
+/* hide about section scrollbar */
+
+.about .content-wrap[data-v-5c30286e]::-webkit-scrollbar {
+  background-color: rgba(255, 255, 255, 0);
+  width: 4px
+}
+
+.about .content-wrap[data-v-5c30286e]::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.about .content-wrap[data-v-5c30286e]::-webkit-scrollbar-thumb {
+  background-color: rgba(196, 196, 240, 0.20);
+  border-radius: 10px;
+}
+
+/*╔═════════════╗
+     ANIME/MANGA LIST
+  ╚═════════════╝*/
+
+.medialist .filters .filter-group:first-child>span .count {
+  padding-right: 10px;
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected, .el-select-dropdown.is-multiple .el-select-dropdown__item.selected.hover, .filter-group a.router-link-active[data-v-1e00b9da], .filter-group span.active[data-v-310d8b7e] {
+  background-color: rgb(0, 0, 0, .4)
+}
+
+.el-select .el-tag__close.el-icon-close {
+  background-color: rgb(var(--cc-liberty));
+}
+
+.el-select__tags .el-tag, .el-select__tags .el-tag--info {
+  padding-right: 10px;
+}
+
+.medialist.table .row:nth-of-type(even) {
+  background: var(--cc-transp-black);
+}
+
+.medialist.table .entry:hover {
+  background: rgb(var(--color-blue)) !important;
+}
+
+.medialist.table .entry:hover .cover .image {
+  transition: .15s left;
+}
+
+.medialist .notes:before, .medialist .repeat:before, .medialist.table .entry:hover .cover .image {
+  animation: fadeinTR .75s cubic-bezier(0.075, 0.820, 0.165, 1.000) forwards 1;
+  animation-delay: .15s;
+  opacity: 0;
+}
+
+/* Content Fixes */
+
+.content>.medialist, .favourites, .content>.stats, .content>.user-social {
+  margin-top: 0;
+}
+
+/*╔═════════════╗
+      Social Follow Cards
+  ╚═════════════╝*/
+
+.filter-group span:hover {
+  background: rgba(0, 0, 0, 0.5);
+  color: rgb(var(--color-blue));
+}
+
+.follow-card {
+  border-radius: 255px;
+  transition: all 0.69s ease-in-out;
+}
+
+.follow-card>.avatar {
+  border: 4px solid rgb(var(--color-background));
+  border-radius: 255px !important;
+  transition: all 0.69s ease-in-out;
+}
+
+.follow-card:hover, .follow-card>.avatar:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  border-color: rgb(var(--color-blue));
+}
+
+.follow-card>.name {
+  background: rgba(var(--color-shadow), .4);
+}
+
+/*╔═════════════╗
+             FOOTER
+  ╚═════════════╝*/
+
+.wrap>.footer {
+  position: relative;
+  background: rgb(0, 0, 0, 0.8);
+  border-radius: 30px 30px 0 0;
+  left: calc((100% - 85%) / 2);
+  width: 85%;
+  box-shadow: var(--nutella-bs);
+}
+
+.theme-selector>.dark {
+  background: #000;
+}
+
+.theme-selector>h2 {
+  color: #EF881A;
+}
+
+a, a:visited {
+  color: rgb(var(--color-text));
+}
+
+/*╔═════════════╗
+             CURSOR
+  ╚═════════════╝*/
+
+* {
+  cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963044248158268/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-cursor.png), auto;
+}
+
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+  cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963046839189554/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-pointer.png), auto;
+}
+
+a, a:link img {
+  cursor: url(https://cdn.discordapp.com/attachments/809136394273816617/827963046839189554/miss-kobayashi-s-dragon-maid-kanna-and-dragon-form-pointer.png), auto !important;
+}
+
+/*╔═════════════╗
+      CUSTOM BADGES
+  ╚═════════════╝*/
+
+.text>.header>.name::after {
   position: relative;
   top: -1px;
   left: 4px;
   border-radius: 7px;
-  color: rgba(255,225,255, 1);
+  color: rgba(255, 225, 255, 1);
   padding: 3px 6px;
   margin-bottom: 3px;
   margin-right: 16px;
   transition: .4s;
   font-size: 1.2rem;
-  transition: .5s;  
+  transition: .5s;
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-name: rainbow;
   animation-timing-function: ease-in-out;
   letter-spacing: .03em;
 }
+
 /*a[href="/user/???/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
-  content: "???";
+content: "???";
 } */
+
 a[href="/user/nutellaa/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "addict";
 }
+
 a[href="/user/shinon/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "kouhai <3";
 }
+
 a[href="/user/SkylarSays/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "most popular guy on anilist";
 }
+
 a[href="/user/candy/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "my 3d waifu";
 }
+
 a[href="/user/ForeverAnimeX/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "photoshop addict";
 }
+
 a[href="/user/paprikaosk/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "neko";
 }
+
 a[href="/user/Duvet/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "poopsock";
 }
+
 a[href="/user/Suck/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "amogus";
 }
+
 a[href="/user/ChriSenpai/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "css buddy";
 }
+
 a[href="/user/bishoujo69/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "fellow takayan simp";
 }
+
 a[href="/user/Vereen/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "𝓶𝓪𝓷𝓱𝔀𝓪 𝓼𝓹𝓮𝓬𝓲𝓪𝓵𝓲𝓼𝓽";
 }
+
 a[href="/user/yurie/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "♡";
 }
+
 a[href="/user/Pepper/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "Chili pepper";
 }
+
 a[href="/user/voidghoulish/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "horny lmao got rickrolled";
 }
+
 a[href="/user/ditto/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "best pokemon";
 }
+
 a[href="/user/kitkat/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
   content: "polish";
 }
+
 a[href="/user/Wasian/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after {
-  content: "funny aot videos";
+  content: "funny videos";
 }
 
-/* changes color of left border */
-.activity-message .text {
-    border-left: solid 3px #000;
-}
-.activity-text .text {
-    border-left: solid 7px #b368e6;
-}
-.about .content-wrap[data-v-5c30286e] {
-    max-height: 900px;
-    border-radius: 15px;
-}
-.history-day.lv-1[data-v-514856af], .tooltip .circle.lv-1[data-v-514856af] {
-    background: transparent;
-    content: url(https://cdn.discordapp.com/emojis/746208584257372220.gif?v=1);
-}
-.history-day.lv-9[data-v-514856af], .tooltip .circle.lv-1[data-v-514856af] {
-    background: transparent;
-    content: url(https://cdn.discordapp.com/emojis/746208584257372220.gif?v=1);
+/*╔═════════════╗
+      OVERLAY (Cakes)
+  ╚═════════════╝*/
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"] {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  left: -500px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  transition: left 0.3s ease-in-out;
 }
 
-.action.likes .button .fa-heart, .like-wrap.thread_comment .button .fa-heart {
-    color: #0000;
-    stroke: white;
-    stroke-width: 80;
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]:focus-within {
+  left: 0;
 }
-.action.likes .button.liked .fa-heart, .like-wrap.thread_comment .button.liked .fa-heart {
-    color: var(--color-red);
-    stroke: rgba(0, 0, 0, 0);
-    stroke-width: 0;
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]>b[href="arrow"] {
+  width: 40px;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.5);
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  position: fixed;
+  top: calc(50% - 50px);
+  left: 0;
 }
-.activity-message .wrap > .text .activity-markdown,
-.activity-text .wrap > .text .activity-markdown {
-    border-radius: 0 !important;
-    border-bottom: 1px solid rgba(var(--color-text), 0.1);
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]>b[href="arrow"]>a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.button.liked svg[data-icon="heart"] path {
-  transform-origin: center;
-  animation: animateHeart 1.5s infinite;
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]>b[href="arrow"]>a::after {
+  content: '';
+  mask: url(https://criolaservice.by/AL-css/svg/chevron-right.svg) no-repeat 50% 50%;
+  -webkit-mask: url(https://criolaservice.by/AL-css/svg/chevron-right.svg) no-repeat 50% 50%;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  width: 13px;
+  height: 16px;
+  margin-right: 5px;
+  background-color: rgba(var(--color-text-light));
 }
-.activity-feed .activity-entry
-.wrap .actions {
-    z-index: 1;
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]:focus-within>b[href="arrow"] {
+  width: 100%;
+  height: 100%;
+  transition: all 0s linear;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
-.activity-feed .activity-entry,
-.activity-feed .activity-replies .reply {
-    animation: zoomIn 0.2s;
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]:focus-within>b[href="arrow"]>a {
+  width: 0;
+  height: 0;
 }
-/* More Animations for content */
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]:focus-within>b[href="arrow"]>a::after {
+  content: "";
+}
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]:focus-within>a[href="#"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]>b[href="list"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-bottom: auto;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]>b[href="list"]>a {
+  width: 90%;
+  text-align: center;
+  padding: 70px 0px;
+  color: white;
+  font-weight: 400;
+  font-size: 3rem;
+  border-radius: 20px !important;
+  pointer-events: auto;
+  transition: background linear 0.35s;
+}
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]>b[href="list"]>a:hover {
+  background: rgba(0, 0, 0, 0.3);
+  transition: background linear 0.1s;
+}
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]>b[href="list"]>a:nth-of-type(1)::after {
+  content: 'aaaaa';
+  background-image: url(https://cdn.discordapp.com/attachments/809136394273816617/819372281943687228/1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  color: rgba(0, 0, 0, 0);
+  padding: 50px 30px;
+}
+
+.overview>.section>.about>.content-wrap>.markdown b[href="overlay"]>b[href="list"]>a:nth-of-type(2)::after {
+  content: 'aaaaa';
+  background-image: url(https://cdn.discordapp.com/attachments/809136394273816617/819372316039446578/3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  color: rgba(0, 0, 0, 0);
+  padding: 50px 30px;
+}
+
+/*╔══════════════╗
+            animations
+  ╚══════════════╝*/
+
+:root {
+  --animate-duration: 1s;
+  --animate-delay: 1s;
+  --animate-repeat: 1
+}
+
+@keyframes shakeY {
+  0%, to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0)
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0)
+  }
+}
+
+.animate__shakeY {
+  -webkit-animation-name: shakeY;
+  animation-name: shakeY
+}
+
 @keyframes animateHeart {
   0% {
     transform: scale(1.2);
@@ -677,364 +1101,63 @@ a[href="/user/Wasian/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::a
     transform: scale(1.2);
   }
 }
+
 .heart {
   animation: animateHeart 1.5s infinite;
 }
+
 @keyframes zoomIn {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale3d(.3, .3, .3);
-        transform: scale3d(.3, .3, .3)
-    }
-    50% {
-        opacity: 1
-    }
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3)
+  }
+  50% {
+    opacity: 1
+  }
 }
 
 .animate__zoomIn {
-    -webkit-animation-name: zoomIn;
-    animation-name: zoomIn
-}
-
-/* add search anilist thing*/
-.nav .wrap {
-    display: grid;
-    grid-template-columns: 70px auto auto 70px;
-}
-.nav .wrap .links {
-    grid-column-start: 3;
-    margin-left: -25px;
-}
-.nav .wrap .search {
-    grid-column-start: 2;
-    grid-row-start: 1;
-    padding: 10px;
-    background: rgb(16 16 16);
-    border-radius: 35px;
-    width: 100%;
-    cursor: text;
-    font-family: "Overpass"
-}
-.nav .wrap .search:after {
-    content: "Search AniList";
-    margin-left: 10px;
-    color: #777a9e;
-}
-.nav .wrap .user {
-    grid-column-start: 4;
-    grid-row-start: 1;
-}
-/* adds avatar spin on messages */
-.wrap:hover .header > .avatar, .users > .user:hover, .reply:hover .header > .avatar {
-    border-color: #B368E6;
-    transform: scale(1.5) rotate(360deg);
-}
-.wrap:hover .header > .avatar, .users > .user:hover, .reply:hover .header > .avatar {
-      transition: all 0.69s ease-in-out;
-    border: 2px solid #B368E6;
-}
-
-/* Overlay (written by cakes) */
-.overview > .section > .about > .content-wrap > .markdown b[href="overlay"] {
-  position: fixed;
-  width: 200px;
-  height: 100%;
-  top: 0;
-  left: -500px;
-  background: rgb(var(--color-foreground));
-  z-index: 100;
-
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-
-  transition: left 0.3s ease-in-out;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]:focus-within {
-  left: 0;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]
-  > b[href="arrow"] {
-  width: 40px;
-  height: 100px;
-  background: rgb(var(--color-foreground));
-
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-
-  position: fixed;
-  top: calc(50% - 50px);
-  left: 0;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]
-  > b[href="arrow"]
-  > a {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]
-  > b[href="arrow"]
-  > a::after {
-    content: '';
-    mask: url(https://criolaservice.by/AL-css/svg/chevron-right.svg) no-repeat 50% 50%;
-    -webkit-mask: url(https://criolaservice.by/AL-css/svg/chevron-right.svg) no-repeat 50% 50%;
-    mask-size: cover;
-    -webkit-mask-size: cover;
-    width: 13px;
-    height: 16px;
-    margin-right: 5px;
-    background-color: rgba(var(--color-text-light));
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]:focus-within
-  > b[href="arrow"] {
-  width: 100%;
-  height: 100%;
-  transition: all 0s linear;
-  top: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]:focus-within
-  > b[href="arrow"]
-  > a {
-  width: 0;
-  height: 0;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]:focus-within
-  > b[href="arrow"]
-  > a::after {
-  content: "";
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]:focus-within
-  > a[href="#"] {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  cursor: default;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]
-  > b[href="list"] {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin-bottom: auto;
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  z-index: 1000;
-  pointer-events: none;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]
-  > b[href="list"]
-  > a {
-  width: 90%;
-  text-align: center;
-  padding: 70px 0px;
-  color: white;
-  font-weight: 400;
-  font-size: 3rem;
-  border-radius: 20px !important;
-  pointer-events: auto;
-  transition: background linear 0.35s;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]
-  > b[href="list"]
-  > a:hover {
-  background: rgba(0, 0, 0, 0.3);
-  transition: background linear 0.1s;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]
-  > b[href="list"]
-  > a:nth-of-type(1)::after {
-    content: 'aaaaa';
-    background-image: url(https://cdn.discordapp.com/attachments/809136394273816617/819372281943687228/1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    color: rgba(0,0,0,0);
-    padding: 50px 30px;
-}
-.overview
-  > .section
-  > .about
-  > .content-wrap
-  > .markdown
-  b[href="overlay"]
-  > b[href="list"]
-  > a:nth-of-type(2)::after {
-    content: 'aaaaa';
-    background-image: url(https://cdn.discordapp.com/attachments/809136394273816617/819372316039446578/3.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    color: rgba(0,0,0,0);
-    padding: 50px 30px;
-  }
-/* changes the font for a few things */
-.banner-content .name {
-    font-family: cursive;
-}
-body {
-    font-family: cursive;
-}
-.link[data-v-4fbac4e1] {
-    font-family: cursive;
-}
-.nav .link[data-v-de544782] {
-    font-family: cursive;
-}
-/* animation on avatar */
-.banner-content > .avatar {
-    margin-top: 15px;
-    animation: shakeY 30s;
-    animation-iteration-count: infinite;
-    max-width: 240px;
-}
-
-/* kanna walking animation */
-.header-wrap .banner-content:after {
-    content: "";
-    background: url(https://cdn.discordapp.com/attachments/809136394273816617/840247436127240202/tumblr_olm2o2DeZJ1sdb5e7o1_250.gif) no-repeat 0 0;
-    z-index: 9999;
-    height: 500px;
-    width:500px;
-    transform: scaleX(-1);
-    position: fixed;
-    left: 0;
-    top: 70.4%;
-  animation: moveLeftToRight 15s linear infinite;
-  transition: all 1s ease;
-}
-
-@-moz-keyframes moveLeftToRight {
-  0%   { left: -800px; }
-  100% { left: 100%; }
-}
-@-ms-keyframes moveLeftToRight {
-  0%   { left: -800px; }
-  100% { left: 100%; }
-}
-@keyframes moveLeftToRight {
-  0%   { left: -800px; }
-  100% { left: 100%; }
-}
-@-webkit-keyframes moveLeftToRight {
-  0%   { left: -800px; }
-  100% { left: 100%; }
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn
 }
 
 @-webkit-keyframes shine {
-0%, 10% {
-  background-position: -1000px;
-}
-100% {
-  background-position: 1000px;
-}
+  0%, 10% {
+    background-position: -1000px;
+  }
+  100% {
+    background-position: 1000px;
+  }
 }
 
 @keyframes inandout {
-  0%  {
-      transform: scale(1);
+  0% {
+    transform: scale(1);
   }
-  50%  {
-      transform: scale(1.1);
+  50% {
+    transform: scale(1.1);
   }
 }
 
-/*changes the bio video borders */
-.markdown video {
-  border-radius: 15px;
-}
-/* hover in bio socials ty bartho */
-img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372285059268646/6.png"],
-img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372316039446578/3.png"],
-img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372281943687228/1.png"] {
-  transition: transform 0.3s linear;
-}
-
-/*img[src="https://i.imgur.com/mT8zWua.png"]:hover,
-img[src="https://i.imgur.com/1JyDZCA.png"]:hover,*/
-img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372285059268646/6.png"]:hover,
-img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372316039446578/3.png"]:hover,
-img[src="https://cdn.discordapp.com/attachments/809136394273816617/819372281943687228/1.png"]:hover {
-  transform: scale(1.2)
+@keyframes fadeinTR {
+  from {
+    transform: translateX(30%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+    pointer-events: all;
+  }
 }
 
-/* shine effect (thanks to cakes) */
-.banner-content .name {
-background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
-background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
--webkit-background-size: 200px;
-color: rgba(255, 255, 255, .6);
--webkit-background-clip: text;
--webkit-animation-name: shine;
--webkit-animation-duration: 5s;
--webkit-animation-iteration-count: infinite;
-text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
+:root, body, .site-theme-dark, .site-theme-contrast {
+  --nutella-bs: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px;
+  --nutella-ns: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px;
+}
+
+.wrap[data-v-1bf2cf4e], .overview[data-v-5c30286e] .content-wrap, .input[data-v-c574a71c] .el-textarea__inner, .activity-replies>.reply, .site-theme-dark .overview .favourite.studio, .scroller>.load-more, .user-page-unscoped .markdown-editor, .reply[data-v-732ef224], .button.cancel[data-v-c574a71c] {
+  background: black;
 }
