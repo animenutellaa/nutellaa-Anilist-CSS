@@ -2,13 +2,14 @@
 
 @import url("https://fonts.googleapis.com/css?family=K2D");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
 /*╔═════════════╗
         HEADER AREA
   ╚═════════════╝*/
 
 /* adds background image */
 
-.page-content {
+body {
   background-image: url("https://i.imgur.com/C3X9BhL.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -59,7 +60,7 @@
 /* changes logo and adds hover */
 
 .logo img {
-  content: url(https://cdn.discordapp.com/attachments/809136394273816617/834643759228649472/images-removebg-preview.png);
+  content: url(https://i.imgur.com/bGH0x1w.png);
 }
 
 .logo:hover {
@@ -72,7 +73,7 @@
 /* Adds a gif or image to search button */
 
 .search[data-v-4fbac4e1]:hover svg {
-  background: url(https://cdn.discordapp.com/attachments/809136394273816617/829796231563051048/kanna_search_gif.gif);
+  background: url(https://imgur.com/ihWfznP.gif);
   background-repeat: no-repeat;
   background-size: contain;
   color: #0010FF00;
@@ -131,7 +132,7 @@
 
 .banner .container .banner-content {
   align-items: center;
-  margin-top: 20px;
+  margin-top: 25px;
   position: relative;
   width: 50%;
 }
@@ -583,6 +584,7 @@ img[src="https://cdn.discordapp.com/attachments/809136394273816617/8193722850592
   font-style: italic;
   justify-content: flex-end;
   display: flex;
+  color: orange;
 }
 
 /*╔═════════════════╗
@@ -596,7 +598,7 @@ img[src="https://cdn.discordapp.com/attachments/809136394273816617/8193722850592
   grid-template-columns: auto auto;
   padding: 20px 40px;
   text-align: left;
-  background: rgb(0, 0, 0);
+  background: rgb(0,0,0);
 }
 
 .stat[data-v-815ccddc]:nth-child(1) {
@@ -1157,7 +1159,6 @@ a[href="/user/Wasian/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::a
   --nutella-bs: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px;
   --nutella-ns: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px;
 }
-
-.wrap[data-v-1bf2cf4e], .overview[data-v-5c30286e] .content-wrap, .input[data-v-c574a71c] .el-textarea__inner, .activity-replies>.reply, .site-theme-dark .overview .favourite.studio, .scroller>.load-more, .user-page-unscoped .markdown-editor, .reply[data-v-732ef224], .button.cancel[data-v-c574a71c] {
+.wrap[data-v-1bf2cf4e], .overview[data-v-5c30286e] .content-wrap, .input[data-v-c574a71c] .el-textarea__inner, .activity-replies>.reply, .site-theme-dark .overview .favourite.studio, .scroller>.load-more, .user-page-unscoped .markdown-editor, .reply[data-v-732ef224], .button.cancel[data-v-c574a71c], .hohPinned .text {
   background: black;
 }
