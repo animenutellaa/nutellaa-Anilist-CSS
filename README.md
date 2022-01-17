@@ -6,4 +6,4 @@ if you need any help with anything or have any questions, [This is my discord](h
 
 My [Main Code](https://github.com/animenutellaa/nutellaa-CSS/blob/main/main.css) which i'll be updating everytime i add something new or make changes.
 
-credits to [anzu](https://anilist.co/user/Anzu/) | [cakes](https://anilist.co/user/cakes/) | [sigma](https://anilist.co/user/Sigma/) for some of the code I used.
+credits to [anzu](https://anilist.co/user/Anzu/) | [cakes](https://anilist.co/user/cakes/) | [sigma](https://anilist.co/user/Sigma/) for parts of the code I used.
